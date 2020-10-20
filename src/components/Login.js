@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 import { userReducer } from "../redux/reducers/userReducer";
 import { connect } from "react-redux";
 
 const Login = () => {
+  // const [data, setData] = useState();
+
+  // const login = useSelector((state) => state.userReducer);
+
+  // const id = props.id;
+  // const dispatch = useDispatch();
+
+  // const [token] = useGetToken(); // define
+
+  // useEffect(() => {
+  //   if (token) {
+  //     dispatch(fetchProfile(id));
+  //   }
+  // }, [id, token, dispatch]);
+
   return (
     <div>
       <h1>Login</h1>
