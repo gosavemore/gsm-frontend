@@ -1,140 +1,69 @@
-import React, { useState, useEffect } from "react";
-import { connect, useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import { registerUser } from "../redux/actions/userActions";
 
-const Register = () => {
-  const [data, setData] = useState({
-    username: "",
-    password: "",
-    email: "",
-    firstName: "",
-    lastName: "",
-    houseNumber: "",
-    streetName: "",
-    city: "",
-    zip: "",
-    state: "",
-    country: "",
-  });
+export default function Register() {
+  const { register, handleSubmit, errors } = useForm();
+  const dispatch = useDispatch();
 
-  //   const state = useSelector((state) => state);
-  //   const dispatch = useDispatch(setData);
-  // const token = "token"; // fix
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     setData();
-  //   };
-  // }, [token, dispatch]);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    let change = {};
-    change[name] = value;
-    setData(change);
+  const onSubmit = (data) => {
+    dispatch(registerUser(data));
   };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("this is the local state", data);
-  };
+  console.log(errors);
 
   return (
-    <div>
-      <h1>Registration</h1>
-      <form onSubmit={handleSubmit}>
-        <label>Username</label>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          value={data.username}
-          onChange={handleChange}
-        />
-        <label>Password</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          value={data.password}
-          onChange={handleChange}
-        />
-        <label>Email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={data.email}
-          onChange={handleChange}
-        />
-        <label>First Name</label>
-        <input
-          type="text"
-          id="firstName"
-          name="firstName"
-          value={data.firstName}
-          onChange={handleChange}
-        />
-        <label>Last Name</label>
-        <input
-          type="text"
-          id="lastName"
-          name="lastName"
-          value={data.lastName}
-          onChange={handleChange}
-        />
-        <label>House Number</label>
-        <input
-          type="text"
-          id="houseNumber"
-          name="houseNumber"
-          value={data.houseNumber}
-          onChange={handleChange}
-        />
-        <label>Street Name</label>
-        <input
-          type="text"
-          id="streetName"
-          name="streetName"
-          value={data.streetName}
-          onChange={handleChange}
-        />
-        <label>City </label>
-        <input
-          type="text"
-          id="city"
-          name="city"
-          value={data.city}
-          onChange={handleChange}
-        />
-        <label>Zip </label>
-        <input
-          type="text"
-          id="zip"
-          name="zip"
-          value={data.zip}
-          onChange={handleChange}
-        />
-        <label>State</label>
-        <input
-          type="text"
-          id="state"
-          name="state"
-          value={data.state}
-          onChange={handleChange}
-        />
-        <label>Country</label>
-        <input
-          type="text"
-          id="country"
-          name="country"
-          value={data.country}
-          onChange={handleChange}
-        />
-        <button> Submit </button>
-      </form>
-    </div>
-  );
-};
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label>User Name</label>
+      <input
+        type="text"
+        placeholder="Username"
+        name="username"
+        ref={register}
+      />
+      <label>Email</label>
+      <input type="text" placeholder="Email" name="email" ref={register} />
+      <label>Password</label>
+      <input
+        type="text"
+        placeholder="password"
+        name="password"
+        ref={register}
+      />
+      <label>First Name</label>
+      <input
+        type="text"
+        placeholder="First Name"
+        name="firstName"
+        ref={register}
+      />
+      <label>Last Name</label>
+      <input
+        type="text"
+        placeholder="Last Name"
+        name="lastName"
+        ref={register}
+      />
+      <label>House Number</label>
+      <input
+        type="text"
+        placeholder="House Number"
+        name="houseNumber"
+        ref={register}
+      />
+      <label>Street name</label>
+      <input
+        type="text"
+        placeholder="Street Name"
+        name="streetName"
+        ref={register}
+      />
+      <input type="text" placeholder="City" name="city" ref={register} />
+      <input type="text" placeholder="Zip" name="zip" ref={register} />
+      <input type="text" placeholder="State" name="state" ref={register} />
+      <input type="text" placeholder="Country" name="country" ref={register} />
 
-export default Register;
+      <input type="submit" />
+    </form>
+  );
+}
