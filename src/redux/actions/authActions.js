@@ -25,13 +25,3 @@ export const loginUser = (data, history) => {
   };
 };
 
-// REGISTER USER ACTIONS
-export const registerUser = (data) => (dispatch) => {
-  dispatch({ type: REGISTER_USER_START });
-  return axiosWithAuth()
-    .post("/auth/register", data)
-    .then((res) => {
-      dispatch({ type: REGISTER_USER_SUCCESS, payload: res.data });
-    })
-    .catch((err) => dispatch({ type: REGISTER_USER_FAIL, payload: err }));
-};

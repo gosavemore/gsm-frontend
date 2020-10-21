@@ -5,7 +5,9 @@ import { userReducer } from "../redux/reducers/userReducer";
 import { connect } from "react-redux";
 
 const Login = () => {
-  // const [data, setData] = useState();
+  const [data, setData] = useState();
+
+  console.log("checking what this is", data);
 
   // const login = useSelector((state) => state.userReducer);
 

@@ -4,7 +4,7 @@ const axiosWithAuth = () => {
   const token = localStorage.getItem("token");
 
   // get API base url
-  const apiUrl = process.env.REACT_API_URL || "http://localhost:5000";
+  const apiUrl = process.env.REACT_APP_BACKEND_URL;
 
   return axios.create({
     baseURL: apiUrl,
