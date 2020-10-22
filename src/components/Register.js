@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { registerUser } from '../redux/actions/userActions'
 
-import { getProducts } from '../redux/actions/productsActions'
+// import { getProducts } from '../redux/actions/productsActions'
 
 export default function Register() {
   const { register, handleSubmit, errors } = useForm()
@@ -11,7 +11,7 @@ export default function Register() {
 
   const onSubmit = (data) => {
     dispatch(registerUser(data))
-    dispatch(getProducts())
+    // dispatch(getProducts())
   }
   console.log(errors)
 

@@ -3,13 +3,7 @@ import { types } from '../actions/index'
 const { GET_PRODUCTS_START, GET_PRODUCTS_SUCCESS, GET_PRODUCTS_FAIL } = types
 
 const initialState = {
-  allData: {},
-  id: '',
-  productName: '',
-  price: 0,
-  shortDescription: '',
-  description: '',
-  stock: 0,
+  products: [],
   err: '',
   isLoading: false,
 }
@@ -25,7 +19,7 @@ const productsReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         isLoading: false,
-        allData: payload,
+        products: payload,
       }
     case GET_PRODUCTS_FAIL:
       return {
