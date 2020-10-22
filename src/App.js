@@ -4,6 +4,9 @@ import Login from './components/Login'
 import Register from './components/Register'
 import ProductList from './components/ProductList'
 import AddProduct from './components/AddProduct'
+import EditProduct from './components/EditProduct'
+import GetProduct from './components/GetProduct'
+
 import { useDispatch } from 'react-redux'
 
 import { getProducts } from './redux/actions/productsActions'
@@ -23,6 +26,8 @@ function App() {
         <Register />
         <ProductList />
         <AddProduct />
+        <EditProduct />
+        <GetProduct />
       </div>
     </div>
   )
