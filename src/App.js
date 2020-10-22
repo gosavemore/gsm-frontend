@@ -3,6 +3,7 @@ import './App.css'
 import Login from './components/Login'
 import Register from './components/Register'
 import ProductList from './components/ProductList'
+import AddProduct from './components/AddProduct'
 import { useDispatch } from 'react-redux'
 
 import { getProducts } from './redux/actions/productsActions'
@@ -21,6 +22,7 @@ function App() {
         <Login />
         <Register />
         <ProductList />
+        <AddProduct />
       </div>
     </div>
   )

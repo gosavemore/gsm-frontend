@@ -3,10 +3,7 @@ import { useSelector } from 'react-redux'
 import ProductCard from './ProductCard'
 
 const ProductList = () => {
-  const products = useSelector((state) => state.products.products)
-  console.log('produts', products)
-
-  // products.map(product => {
+  const { products } = useSelector((state) => state.products)
 
   return (
     <div>
