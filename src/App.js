@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './App.css'
 import Login from './components/Login'
 import Register from './components/Register'
-import Products from './components/Products'
+import ProductList from './components/ProductList'
+import { useDispatch } from 'react-redux'
+
+import { getProducts } from './redux/actions/productsActions'
 
 function App() {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getProducts())
+  }, [])
+
   return (
     <div className='App'>
       {/* <Login /> */}
@@ -12,7 +20,7 @@ function App() {
       <div>
         <Login />
         <Register />
-        <Products />
+        <ProductList />
       </div>
     </div>
   )
