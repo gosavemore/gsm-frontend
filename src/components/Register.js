@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../redux/actions/authActions";
@@ -7,17 +7,16 @@ export default function Register() {
   const { register, handleSubmit, reset } = useForm();
   const dispatch = useDispatch();
 
-  const onSubmit = (data, e) => {
-    e.preventDefault();
-    let isAdmin = data.isAdmin === "true" ? 1 : 0;
+  const onSubmit = (data) => {
     let updatedData = {
       ...data,
-      isAdmin: isAdmin,
       houseNumber: parseInt(data.houseNumber),
       zip: parseInt(data.zip),
+      isAdmin: 0,
     };
+    console.log("this is the data", updatedData);
     dispatch(registerUser(updatedData));
-    reset();
+    setTimeout(() => reset(), 5000);
   };
 
   return (
@@ -70,12 +69,6 @@ export default function Register() {
       <input type="number" placeholder="Zip" name="zip" ref={register} />
       <input type="text" placeholder="State" name="state" ref={register} />
       <input type="text" placeholder="Country" name="country" ref={register} />
-      <select name="isAdmin" ref={register}>
-        <option value="true">Yes</option>
-        <option value="false" selected>
-          No
-        </option>
-      </select>
       <button type="submit"> Submit </button>
     </form>
   );
