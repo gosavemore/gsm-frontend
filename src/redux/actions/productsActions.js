@@ -42,10 +42,12 @@ export const getProducts = () => async (dispatch) => {
   }
 }
 
-export const addProducts = (newProduct) => async (dispatch) => {
+export const addProducts = (newProduct, hashedValue) => async (dispatch) => {
+  console.log('productsAction.js:::', hashedValue)
+  const combinedData = { newProduct, hashedValue }
   dispatch({ type: ADD_PRODUCTS_START })
   try {
-    const res = await axiosRoute().post('/products/addProduct', newProduct)
+    const res = await axiosRoute().post('/products/addProduct', combinedData)
     console.log('res')
     dispatch({ type: ADD_PRODUCTS_SUCCESS, payload: res.data })
     return res

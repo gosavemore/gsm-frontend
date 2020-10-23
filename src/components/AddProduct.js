@@ -19,8 +19,8 @@ const AddProduct = () => {
   const { register, handleSubmit, errors } = useForm()
   const dispatch = useDispatch()
 
-  const onSubmit = (data, hashedValue) => {
-    dispatch(addProducts(data))
+  const onSubmit = (data) => {
+    dispatch(addProducts(data, hashedValue))
   }
 
   return (
