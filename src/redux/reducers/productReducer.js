@@ -17,7 +17,6 @@ const {
 
 const initialState = {
   products: [],
-  registerUser: [],
   product: [],
   err: "",
   isLoading: false,
@@ -66,7 +65,7 @@ const productReducer = (state = initialState, { type, payload }) => {
     case ADD_PRODUCTS_SUCCESS:
       return {
         ...state,
-        registerUser: payload,
+        products: payload,
       };
     case ADD_PRODUCTS_FAIL:
       return {
@@ -80,7 +79,6 @@ const productReducer = (state = initialState, { type, payload }) => {
         isLoading: true,
       };
     case EDIT_PRODUCTS_SUCCESS:
-      console.log("this is the res data", payload);
       return {
         ...state,
         products: payload,
