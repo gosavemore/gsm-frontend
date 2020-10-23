@@ -3,9 +3,6 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../redux/actions/authActions";
 
-import { userReducer } from "../redux/reducers/userReducer";
-import { connect } from "react-redux";
-
 const Login = () => {
   const { register, handleSubmit, errors } = useForm();
   const dispatch = useDispatch();
