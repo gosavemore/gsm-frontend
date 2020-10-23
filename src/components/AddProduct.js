@@ -4,11 +4,22 @@ import { useDispatch } from 'react-redux'
 import productReducer from '../redux/reducers/productReducer'
 import { addProducts } from '../redux/actions/productsActions'
 
+import sha256 from 'js-sha256'
+
 const AddProduct = () => {
+  // PLAN
+  // CREATE A HASHED VALUE
+  // SEND IT TO DB
+  const hashedValue = sha256.create()
+  console.log('hashed', hashedValue)
+
+  // THEN IN OTHER FILES
+  // CHECK TO SEE IF THEY ARE AUTHORIZED AND IF SO DISPLAY IT
+
   const { register, handleSubmit, errors } = useForm()
   const dispatch = useDispatch()
 
-  const onSubmit = (data) => {
+  const onSubmit = (data, hashedValue) => {
     dispatch(addProducts(data))
   }
 

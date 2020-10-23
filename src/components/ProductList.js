@@ -5,6 +5,8 @@ import ProductCard from './ProductCard'
 const ProductList = () => {
   const { products } = useSelector((state) => state.products)
 
+  console.log('this is the products', products)
+
   return (
     <div>
       <h1>Products</h1>
