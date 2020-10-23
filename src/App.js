@@ -23,9 +23,9 @@ function App() {
         <Login />
         <br></br>
         <Register />
-        {/* <ProductList />
+        <ProductList />
         <AddProduct />
-        <EditProduct />
+        {/* <EditProduct />
         <GetProduct /> */}
       </div>
     </div>

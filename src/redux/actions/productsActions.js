@@ -44,8 +44,7 @@ export const getProducts = () => async (dispatch) => {
 export const addProducts = (newProduct) => async (dispatch) => {
   dispatch({ type: ADD_PRODUCTS_START });
   try {
-    const res = await axiosRoute().post("/products/addProduct", newProduct);
-    console.log("res");
+    const res = await axiosRoute().post("/products", newProduct);
     dispatch({ type: ADD_PRODUCTS_SUCCESS, payload: res.data });
     return res;
   } catch (err) {
