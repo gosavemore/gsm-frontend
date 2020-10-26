@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react'
+import AddToCart from './AddToCart'
 
 const ProductCard = (props) => {
   const {
@@ -7,7 +8,7 @@ const ProductCard = (props) => {
     shortDescription,
     description,
     stock,
-  } = props.product;
+  } = props.product
   return (
     <div>
       <h3>{productName} </h3>
@@ -15,8 +16,9 @@ const ProductCard = (props) => {
       <p>{shortDescription} </p>
       <p>{description} </p>
       <p>{stock} </p>
+      <AddToCart data={productName} />
     </div>
-  );
-};
+  )
+}
 
-export default ProductCard;
+export default ProductCard
