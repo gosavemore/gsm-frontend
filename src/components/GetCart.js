@@ -1,11 +1,11 @@
 import React from 'react'
-
-const dispatch = useDispatch()
-
-const { register, handleSubmit } = useForm()
-const dispatch = useDispatch()
+import { useForm } from 'react-hook-form'
+import { useDispatch } from 'react-redux'
+import { getCart } from '../redux/actions/cartActions'
 
 const GetCart = () => {
+  const { register, handleSubmit } = useForm()
+  const dispatch = useDispatch()
   const onSubmit = () => {
     dispatch(getCart())
   }

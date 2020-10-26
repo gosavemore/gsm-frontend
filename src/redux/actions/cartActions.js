@@ -14,7 +14,7 @@ const {
 export const getCart = () => async (dispatch) => {
   dispatch({ type: GET_CART_START })
   try {
-    const res = await axiosRoute().get('/cart')
+    const res = await axiosRoute().get('/shoppingCart')
     dispatch({ type: GET_CART_SUCCESS, payload: res.data })
     return res
   } catch (err) {
@@ -25,7 +25,7 @@ export const getCart = () => async (dispatch) => {
 export const addCart = (newProduct) => async (dispatch) => {
   dispatch({ type: ADD_CART_START })
   try {
-    const res = await axiosRoute().post('/cart', newProduct)
+    const res = await axiosRoute().post('/shoppingCart', newProduct)
     dispatch({ type: ADD_CART_SUCCESS, payload: res.data })
     return res
   } catch (err) {
