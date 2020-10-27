@@ -5,7 +5,7 @@ const NavBar = () => {
   return (
     <div className='navbar'>
       <nav>
-        <ul id='nav-mobile' class='right hide-on-med-and-down'>
+        <ul id='nav' class='right  blue-text text-darken-2'>
           <li>
             <Link className='navLink home' to='/home'>
               Home
