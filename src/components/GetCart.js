@@ -19,4 +19,5 @@ const GetCart = () => {
     </div>
   )
 }
+
 export default GetCart
