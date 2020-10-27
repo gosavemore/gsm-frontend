@@ -26,9 +26,13 @@ const NavBar = () => {
             <Link className='navLink login' to='/login'>
               Login Existing User
             </Link>
+          </li>
+          <li>
             <Link className='navLink track' to='/tracking'>
               Track Order
             </Link>
+          </li>
+          <li>
             <Link className='navLink cart' to='/cart'>
               Cart
             </Link>

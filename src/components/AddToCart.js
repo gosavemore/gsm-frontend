@@ -23,7 +23,9 @@ const AddToCart = () => {
     <div>
       <h5>Add to shopping cart</h5>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <button type='submit'>Add To Cart</button>
+        <button class='btn waves-effect waves-light' type='submit'>
+          Add To Cart
+        </button>
       </form>
     </div>
   )
