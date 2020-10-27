@@ -11,6 +11,7 @@ import Homepage from './components/Homepage'
 import Cart from './components/Cart'
 import GetCart from './components/GetCart'
 import NavBar from './components/NavBar'
+import Tracking from './components/Tracking'
 import { useDispatch } from 'react-redux'
 import { getProducts } from './redux/actions/productsActions'
 
@@ -28,11 +29,11 @@ function App() {
       <header className='App-header'>
         <NavBar />
         <div>
-          <Route exact path='/' component={Homepage} />
+          <Route exact path='/home' component={Homepage} />
           <Route exact path='/searchBar' component={GetProduct} />
-          <Route exact='/register' component={Register} />
+          <Route exact path='/register' component={Register} />
           <Route exact path='/login' component={Login} />
-          <Route exact='/tracking' component={Homepage} />
+          <Route exact path='/tracking' component={Tracking} />
           <Route exact path='/cart' component={GetCart} />
         </div>
       </header>
