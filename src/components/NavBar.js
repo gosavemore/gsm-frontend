@@ -11,6 +11,7 @@ const NavBar = () => {
               Home
             </Link>
           </li>
+
           <li>
             <Link className='navLink searchBar' to='/searchBar'>
               MAKE THIS A SEARCH BAR

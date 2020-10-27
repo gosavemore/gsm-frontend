@@ -21,9 +21,9 @@ const AddToCart = () => {
 
   return (
     <div>
-      <h1>Add to shopping cart</h1>
+      <h5>Add to shopping cart</h5>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <button type='submit'>Submit</button>
+        <button type='submit'>Add To Cart</button>
       </form>
     </div>
   )
