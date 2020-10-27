@@ -18,7 +18,9 @@ const GetProduct = () => {
         <label>Product Name</label>
         <input type='text' id='productName' name='productName' ref={register} />
 
-        <button type='submit'>Submit</button>
+        <button class='btn waves-effect waves-light' type='submit'>
+          Submit
+        </button>
       </form>
     </div>
   )

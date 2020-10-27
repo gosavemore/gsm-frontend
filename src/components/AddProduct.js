@@ -58,7 +58,9 @@ const AddProduct = () => {
           <option value='bottleAndCanned'>Bottle and Canned</option>
           <option value='saucesAndSeasonings'>Sauces and Seasonings</option>
         </select>
-        <button type='submit'>Submit</button>
+        <button class='btn waves-effect waves-light' type='submit'>
+          Submit
+        </button>
       </form>
     </div>
   )

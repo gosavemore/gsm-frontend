@@ -20,7 +20,7 @@ const Login = () => {
         <input type='type' id='username' name='username' ref={register} />
         <label>Password</label>
         <input type='password' id='password' name='password' ref={register} />
-        <input type='submit' />
+        <input class='btn waves-effect waves-light' type='submit' />
       </form>
     </div>
   )
