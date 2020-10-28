@@ -5,7 +5,7 @@ const NavBar = () => {
   return (
     <div className='navbar'>
       <nav>
-        <ul id='nav-mobile' class='right hide-on-med-and-down'>
+        <ul id='nav' class='right  blue-text text-darken-2'>
           <li>
             <Link className='navLink home' to='/home'>
               Home
@@ -26,9 +26,13 @@ const NavBar = () => {
             <Link className='navLink login' to='/login'>
               Login Existing User
             </Link>
+          </li>
+          <li>
             <Link className='navLink track' to='/tracking'>
               Track Order
             </Link>
+          </li>
+          <li>
             <Link className='navLink cart' to='/cart'>
               Cart
             </Link>

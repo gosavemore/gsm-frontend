@@ -20,7 +20,7 @@ export default function Register() {
   }
 
   return (
-    <div>
+    <div style={{ maxWidth: '800px', margin: 'auto' }}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>User Name</label>
         <input
@@ -66,16 +66,23 @@ export default function Register() {
           name='streetName'
           ref={register}
         />
+        <label>City</label>
         <input type='text' placeholder='City' name='city' ref={register} />
+        <label>Zip</label>
         <input type='number' placeholder='Zip' name='zip' ref={register} />
+        <label>State</label>
         <input type='text' placeholder='State' name='state' ref={register} />
+        <label>Country</label>
         <input
           type='text'
           placeholder='Country'
           name='country'
           ref={register}
         />
-        <button type='submit'> Submit </button>
+        <button class='btn waves-effect waves-light' type='submit'>
+          {' '}
+          Submit{' '}
+        </button>
       </form>
     </div>
   )

@@ -7,7 +7,7 @@ const ProductList = () => {
 
   return (
     <div>
-      <h1>Top Selling Products</h1>
+      <h3 class='center-align'>Top Selling Products</h3>
       {products.map((product) => {
         return <ProductCard key={product.id} product={product} />
       })}

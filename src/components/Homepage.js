@@ -5,7 +5,7 @@ const Homepage = () => {
   return (
     <div className='homepage'>
       <div class='row'>
-        <h1>Go Save More!</h1>
+        <h1 class='center-align'>Go Save More!</h1>
         <ProductList />
       </div>
     </div>
