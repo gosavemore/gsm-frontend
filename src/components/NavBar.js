@@ -1,19 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import GoSaveMoreLogoHeader from "../assets/GoSaveMoreLogoHeader.png";
 import SearchBar from "./SearchBar";
-import { signout } from "../redux/actions/authActions";
+import { signOut } from "../redux/actions/authActions";
 
 const NavBar = ({ placeholder, handleChange }) => {
+  const [user, setUser] = useState({
+    user: [],
+    isLoading: "",
+    isAuth: "",
+    isSuccess: "",
+  });
+
   const state = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-  let history = useHistory();
+  const history = useHistory();
 
-  const handleSignout = () => {
-    dispatch(signout());
-    history.push("/");
+  const handleSignOut = () => {
+    dispatch(signOut(history));
+    setUser(state);
   };
+
+  useEffect(() => {
+    setUser(state);
+  }, [state]);
 
   return (
     <nav>
@@ -46,14 +57,18 @@ const NavBar = ({ placeholder, handleChange }) => {
             </>
           ) : null}
           {state.isAuth ? (
-            <li>
-              <Link className="navLink track" to="/tracking">
-                Track Order
-              </Link>
-              <button className="signout" onClick={handleSignout}>
-                Signout
-              </button>
-            </li>
+            <>
+              <li>
+                <Link className="navLink track" to="/tracking">
+                  Track Order
+                </Link>
+              </li>
+              <li>
+                <button className="signout" onClick={handleSignOut}>
+                  Signout
+                </button>
+              </li>
+            </>
           ) : (
             <>
               <li>
