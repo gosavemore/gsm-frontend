@@ -32,6 +32,8 @@ function App() {
   const handleChange = (e) => {
     setSearch({ searchField: e.target.value });
   };
+
+  // filtered search
   let filteredProduct;
   if (search.searchField) {
     filteredProduct = products.filter((product) =>
@@ -43,6 +45,9 @@ function App() {
 
   return (
     <div className="App">
+      <h5 className="top" class="center-align">
+        FREE SHIPPING FOR ORDERS OVER $49
+      </h5>
       <header className="App-header">
         <NavBar placeholder={"search product"} handleChange={handleChange} />
         <div>
