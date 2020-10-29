@@ -10,7 +10,7 @@ const {
 } = types;
 
 const initialState = {
-  id: "",
+  user: [],
   error: "",
   isLoading: false,
   isAuth: false,
@@ -28,7 +28,7 @@ const authReducer = (state = initialState, { type, payload }) => {
     case LOGIN_USER_SUCCESS:
       return {
         ...state,
-        id: payload.id,
+        user: payload,
         isAuth: true,
         isSuccess: true,
         isLoading: false,
