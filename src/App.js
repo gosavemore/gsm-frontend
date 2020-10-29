@@ -27,6 +27,9 @@ function App() {
 
   return (
     <div className='App'>
+      <h5 className='top' class='center-align'>
+        FREE SHIPPING FOR ORDERS OVER $49
+      </h5>
       <header className='App-header'>
         <NavBar />
         <div>

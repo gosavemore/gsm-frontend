@@ -6,7 +6,7 @@ const NavBar = () => {
   return (
     <nav>
       <div className='navbar' class='nav-wrapper'>
-        {/* <div class='nav-wrapper'>
+        {/* <div class='nav-wrapper'>     ---- MOBILE VIEW FIX ATTEMP ---
           <a href='#' class='brand-logo'>
             GoSaveMore
           </a>
@@ -56,7 +56,11 @@ const NavBar = () => {
               className='navLink home'
               to='/'
             >
-              <img className='navLink image' src={GoSaveMoreLogoHeader}></img>
+              <img
+                className='navLink image'
+                src={GoSaveMoreLogoHeader}
+                style={{ padding: '10px' }}
+              ></img>
             </Link>
           </li>
 
