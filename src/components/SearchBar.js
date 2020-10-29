@@ -1,19 +1,14 @@
-import React from 'react'
+import React from "react";
 
-const SearchBar = () => {
-return (
-  <div>
-<h1>SearchBar</h1> 
-</div>
-/* <div class="nav-wrapper">
-<form>
-  <div class="input-field">
-    <input id="search" type="search" required>
-    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-    <i class="material-icons">close</i>
-  </div>
-</form>
-</div> */
-)
+const SearchBar = ({ placeholder, handleChange }) => {
+  return (
+    <input
+      className="search"
+      type="search"
+      placeholder={placeholder}
+      onChange={handleChange}
+    />
+  );
+};
 
-export default SearchBar
+export default SearchBar;
