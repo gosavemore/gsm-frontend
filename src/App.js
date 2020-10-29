@@ -33,7 +33,7 @@ function App() {
     setSearch({ searchField: e.target.value });
   };
 
-  // filtered search
+  // search product if exists
   let filteredProduct;
   if (search.searchField) {
     filteredProduct = products.filter((product) =>
