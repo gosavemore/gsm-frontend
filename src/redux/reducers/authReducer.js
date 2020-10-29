@@ -10,10 +10,8 @@ const {
 } = types;
 
 const initialState = {
-  email: "",
-  password: "",
-  token: "",
-  err: "",
+  id: "",
+  error: "",
   isLoading: false,
   isAuth: false,
   isSuccess: false,
@@ -30,11 +28,11 @@ const authReducer = (state = initialState, { type, payload }) => {
     case LOGIN_USER_SUCCESS:
       return {
         ...state,
-        token: payload.token,
+        id: payload.id,
         isAuth: true,
         isSuccess: true,
         isLoading: false,
-        err: "",
+        error: "",
       };
     case LOGIN_USER_FAIL:
       return {
@@ -42,7 +40,7 @@ const authReducer = (state = initialState, { type, payload }) => {
         isLoading: false,
         isAuth: false,
         isSuccess: false,
-        err: payload,
+        error: payload,
       };
     case REGISTER_USER_START:
       return {
@@ -53,15 +51,19 @@ const authReducer = (state = initialState, { type, payload }) => {
     case REGISTER_USER_SUCCESS:
       return {
         ...state,
-        loggedInUser: payload.currentUser || payload.newUser,
+        id: payload.id,
+        isSuccess: true,
+        isAuth: true,
         isLoading: false,
-        err: "",
+        error: "",
       };
     case REGISTER_USER_FAIL:
       return {
         ...state,
         isLoading: false,
-        err: payload,
+        isAuth: false,
+        isSuccess: false,
+        error: payload,
       };
     default:
       return state;
