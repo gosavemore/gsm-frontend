@@ -22,6 +22,7 @@ export default function Register() {
   return (
     <div style={{ maxWidth: '800px', margin: 'auto', padding: '20px' }}>
       <form onSubmit={handleSubmit(onSubmit)}>
+        <h4>Create account</h4>
         <label>User Name</label>
         <input
           type='text'

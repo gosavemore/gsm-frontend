@@ -13,7 +13,7 @@ const GetProduct = () => {
 
   return (
     <div style={{ maxWidth: '800px', margin: 'auto' }}>
-      <h1>Get product by name</h1>
+      <h4>Get product by name</h4>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>Product Name</label>
         <input type='text' id='productName' name='productName' ref={register} />

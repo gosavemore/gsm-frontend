@@ -12,7 +12,7 @@ const GetCart = () => {
 
   return (
     <div style={{ maxWidth: '800px', margin: 'auto', padding: '20px' }}>
-      <h1>Get cart</h1>
+      <h4>Get cart</h4>
       <form onSubmit={handleSubmit(onSubmit)}>
         <button type='submit'>Get Cart</button>
       </form>
