@@ -9,6 +9,7 @@ const {
   REGISTER_USER_START,
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAIL,
+  SIGNOUT_USER,
 } = types;
 
 // LOGIN USER ACTIONS
@@ -34,4 +35,10 @@ export const registerUser = (data) => (dispatch) => {
       dispatch({ type: REGISTER_USER_SUCCESS, payload: res.data });
     })
     .catch((err) => dispatch({ type: REGISTER_USER_FAIL, payload: err }));
+};
+
+// SIGNOUT
+export const signout = () => (dispatch) => {
+  localStorage.removeItem("token");
+  dispatch({ type: SIGNOUT_USER });
 };
