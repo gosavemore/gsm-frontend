@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -51,16 +51,18 @@ function App() {
       <header className="App-header">
         <NavBar placeholder={"search product"} handleChange={handleChange} />
         <div>
-          <Route
-            exact
-            path="/"
-            component={() => <Homepage filteredProduct={filteredProduct} />}
-          />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/tracking" component={Tracking} />
-          <Route exact path="/cart" component={GetCart} />
-          <Route exact path="/admin/addProducts" component={AddProduct} />
+          <Switch>
+            <Route
+              exact
+              path="/"
+              component={() => <Homepage filteredProduct={filteredProduct} />}
+            />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/tracking" component={Tracking} />
+            <Route exact path="/cart" component={GetCart} />
+            <Route exact path="/admin/addProducts" component={AddProduct} />
+          </Switch>
         </div>
       </header>
       <footer>
