@@ -18,10 +18,9 @@ export const loginUser = (data, history) => (dispatch) => {
   return axiosWithAuth()
     .post("/auth/login", data)
     .then((res) => {
-      console.log("res", res);
       localStorage.setItem("token", res.data.token);
       dispatch({ type: LOGIN_USER_SUCCESS, payload: res.data });
-      // history.push("/");
+      history.push("/");
     })
     .catch((err) => dispatch({ type: LOGIN_USER_FAIL, payload: err }));
 };
@@ -38,7 +37,8 @@ export const registerUser = (data) => (dispatch) => {
 };
 
 // SIGNOUT
-export const signout = () => (dispatch) => {
+export const signOut = (history) => (dispatch) => {
   localStorage.removeItem("token");
   dispatch({ type: SIGNOUT_USER });
+  history.push("/login");
 };

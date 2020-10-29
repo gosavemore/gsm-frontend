@@ -16,11 +16,12 @@ import Tracking from "./components/Tracking";
 import Footer from "./components/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "./redux/actions/productsActions";
+import PrivateRoute from "./redux/util/privateRoute";
 
 function App() {
   const [search, setSearch] = useState({
-    searchField: '',
-  })
+    searchField: "",
+  });
 
   // const [cart, setCart] = useState({
   //   user_id: 1,
@@ -30,35 +31,35 @@ function App() {
   // })
   // console.log(cart)
 
-  const products = useSelector((state) => state.products.products)
-  const dispatch = useDispatch()
+  const products = useSelector((state) => state.products.products);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getProducts())
-  }, [dispatch])
+    dispatch(getProducts());
+  }, [dispatch]);
 
   // FIX SEARCH BAR LINE 32 COMPONENT={} and tracking
   const handleChange = (e) => {
-    setSearch({ searchField: e.target.value })
-  }
+    setSearch({ searchField: e.target.value });
+  };
 
   // search product if exists
-  let filteredProduct
+  let filteredProduct;
   if (search.searchField) {
     filteredProduct = products.filter((product) =>
       product.productName.toLowerCase().includes(search.searchField)
-    )
+    );
   } else {
-    filteredProduct = products
+    filteredProduct = products;
   }
 
   return (
-    <div className='App'>
-      <h5 className='top' class='center-align'>
+    <div className="App">
+      <h5 className="top" class="center-align">
         FREE SHIPPING FOR ORDERS OVER $49
       </h5>
-      <header className='App-header'>
-        <NavBar placeholder={'search product'} handleChange={handleChange} />
+      <header className="App-header">
+        <NavBar placeholder={"search product"} handleChange={handleChange} />
         <div>
           <Switch>
             <Route
@@ -68,9 +69,9 @@ function App() {
             />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/tracking" component={Tracking} />
             <Route exact path="/cart" component={GetCart} />
             <Route exact path="/admin/addProducts" component={AddProduct} />
+            <PrivateRoute exact path="/tracking" component={Tracking} />
           </Switch>
         </div>
       </header>
@@ -80,7 +81,7 @@ function App() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
