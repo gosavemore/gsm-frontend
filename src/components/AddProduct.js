@@ -20,7 +20,7 @@ const AddProduct = () => {
   }
 
   return (
-    <div>
+    <div style={{ maxWidth: '800px', margin: 'auto', padding: '20px' }}>
       <h1>Add a new Product</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>Product Name:</label>

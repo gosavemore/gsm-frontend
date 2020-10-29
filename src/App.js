@@ -29,12 +29,13 @@ function App() {
       <header className='App-header'>
         <NavBar />
         <div>
-          <Route exact path='/home' component={Homepage} />
+          <Route exact path='/' component={Homepage} />
           <Route exact path='/searchBar' component={GetProduct} />
           <Route exact path='/register' component={Register} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/tracking' component={Tracking} />
           <Route exact path='/cart' component={GetCart} />
+          <Route exact path='/admin/addProducts' component={AddProduct} />
         </div>
       </header>
     </div>

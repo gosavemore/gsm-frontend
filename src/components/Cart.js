@@ -12,7 +12,7 @@ var sha256 = require('js-sha256')
 
 const Cart = () => {
   return (
-    <div>
+    <div style={{ maxWidth: '800px', margin: 'auto', padding: '20px' }}>
       <h1>cart</h1>
     </div>
   )

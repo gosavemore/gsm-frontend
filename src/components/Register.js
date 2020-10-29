@@ -20,7 +20,7 @@ export default function Register() {
   }
 
   return (
-    <div style={{ maxWidth: '800px', margin: 'auto' }}>
+    <div style={{ maxWidth: '800px', margin: 'auto', padding: '20px' }}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>User Name</label>
         <input
