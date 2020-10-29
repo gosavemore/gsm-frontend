@@ -51,8 +51,12 @@ const NavBar = () => {
         </div> */}
         <ul id='nav' class='right  blue-text text-darken-2'>
           <li>
-            <Link className='navLink home' to='/' src={GoSaveMoreLogoHeader}>
-              Home
+            <Link
+              style={{ textAlign: 'center' }}
+              className='navLink home'
+              to='/'
+            >
+              <img className='navLink image' src={GoSaveMoreLogoHeader}></img>
             </Link>
           </li>
 

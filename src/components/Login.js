@@ -2,6 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { loginUser } from '../redux/actions/authActions'
+import undraw_Add_user from '../assets/undraw_Add_user.svg'
 
 const Login = () => {
   const { register, handleSubmit, errors } = useForm()
@@ -21,6 +22,7 @@ const Login = () => {
         <label>Password</label>
         <input type='password' id='password' name='password' ref={register} />
         <input class='btn waves-effect waves-light' type='submit' />
+        <img src={undraw_Add_user}></img>
       </form>
     </div>
   )
