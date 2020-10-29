@@ -21,7 +21,10 @@ const Login = () => {
         <input type='text' id='username' name='username' ref={register} />
         <label>Password</label>
         <input type='password' id='password' name='password' ref={register} />
-        <input class='btn waves-effect waves-light' type='submit' />
+        <button class='btn waves-effect waves-light' type='submit'>
+          {' '}
+          Submit{' '}
+        </button>
         <img src={undraw_Add_user}></img>
       </form>
     </div>

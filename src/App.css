@@ -5,3 +5,11 @@ nav {
 footer {
   background-color: #526b8e;
 }
+
+button {
+  background-color: #e63946 !important;
+}
+
+.navLink image {
+  alignitems: 'center';
+}
