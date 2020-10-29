@@ -1,11 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import GoSaveMoreLogoHeader from "../assets/GoSaveMoreLogoHeader.png";
 import SearchBar from "./SearchBar";
+import { signout } from "../redux/actions/authActions";
 
 const NavBar = ({ placeholder, handleChange }) => {
   const state = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  let history = useHistory();
+
+  const handleSignout = () => {
+    dispatch(signout());
+    history.push("/");
+  };
 
   return (
     <nav>
@@ -42,15 +50,9 @@ const NavBar = ({ placeholder, handleChange }) => {
               <Link className="navLink track" to="/tracking">
                 Track Order
               </Link>
-              <Link
-                className="signout"
-                onClick={() => {
-                  localStorage.removeItem("token");
-                }}
-                to={`/`}
-              >
+              <button className="signout" onClick={handleSignout}>
                 Signout
-              </Link>
+              </button>
             </li>
           ) : (
             <>
