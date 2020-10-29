@@ -14,7 +14,10 @@ const GetCart = () => {
     <div style={{ maxWidth: '800px', margin: 'auto', padding: '20px' }}>
       <h4>Get cart</h4>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <button type='submit'>Get Cart</button>
+        <button class='btn waves-effect waves-light' type='submit'>
+          {' '}
+          Get Cart{' '}
+        </button>
       </form>
     </div>
   )
