@@ -1,11 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import GoSaveMoreLogoHeader from '../assets/GoSaveMoreLogoHeader.png'
+import React from "react";
+import { Link } from "react-router-dom";
+import GoSaveMoreLogoHeader from "../assets/GoSaveMoreLogoHeader.png";
+import SearchBar from "./SearchBar";
 
-const NavBar = () => {
+const NavBar = ({ placeholder, handleChange }) => {
   return (
     <nav>
-      <div className='navbar' class='nav-wrapper'>
+      <div className="navbar" class="nav-wrapper">
         {/* <div class='nav-wrapper'>
           <a href='#' class='brand-logo'>
             GoSaveMore
@@ -49,47 +50,45 @@ const NavBar = () => {
             </li>
           </ul>
         </div> */}
-        <ul id='nav' class='right  blue-text text-darken-2'>
+        <ul id="nav" class="right  blue-text text-darken-2">
           <li>
-            <Link className='navLink home' to='/' src={GoSaveMoreLogoHeader}>
+            <Link className="navLink home" to="/" src={GoSaveMoreLogoHeader}>
               Home
             </Link>
           </li>
 
           <li>
-            <Link className='navLink searchBar' to='/searchBar'>
-              MAKE THIS A SEARCH BAR
-            </Link>
+            <SearchBar placeholder={placeholder} handleChange={handleChange} />
           </li>
           <li>
-            <Link className='navLink register' to='/register'>
+            <Link className="navLink register" to="/register">
               Register New User
             </Link>
           </li>
           <li>
-            <Link className='navLink login' to='/login'>
+            <Link className="navLink login" to="/login">
               Login Existing User
             </Link>
           </li>
           <li>
-            <Link className='navLink track' to='/tracking'>
+            <Link className="navLink track" to="/tracking">
               Track Order
             </Link>
           </li>
           <li>
-            <Link className='navLink cart' to='/cart'>
+            <Link className="navLink cart" to="/cart">
               Cart
             </Link>
           </li>
           <li>
-            <Link className='navLink addProduct' to='/admin/addProducts'>
+            <Link className="navLink addProduct" to="/admin/addProducts">
               Admin Add Products
             </Link>
           </li>
         </ul>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;
