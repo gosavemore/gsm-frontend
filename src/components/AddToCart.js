@@ -1,28 +1,27 @@
-import React from 'react'
-import { useForm } from 'react-hook-form'
+import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { addCart } from '../redux/actions/cartActions'
 
-const AddToCart = () => {
-  const { register, handleSubmit, reset } = useForm()
+const AddToCart = (data) => {
   const dispatch = useDispatch()
+  const product = data.product
+  const [cart, setCart] = useState([]);
+  const [cartTotal, setCartTotal] = useState(0);
 
-  const onSubmit = (data) => {
-    let updatedData = {
-      ...data,
-      // price: parseInt(data.price),
-      // ratings: parseInt(data.ratings),
-      // stock: parseInt(data.stock),
-    }
+  console.log('data::::', data)
 
-    dispatch(addCart(updatedData))
-    setTimeout(() => reset(), 5000)
-  }
+  const handleSubmit = (product) => {
+      setCart(product);
+      console.log('product', product)
+    };
+
+  console.log('cart::::=>>>>', cart)
+  
 
   return (
     <div>
       <h5>Add to shopping cart</h5>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit}>
         <button class='btn waves-effect waves-light' type='submit'>
           Add To Cart
         </button>
@@ -32,3 +31,11 @@ const AddToCart = () => {
 }
 
 export default AddToCart
+
+//  const total = () => {
+//     let totalVal = 0;
+//     for (let i = 0; i < cart.length; i++) {
+//       totalVal += cart[i].price;
+//     }
+//     setCartTotal(totalVal);
+// //   };

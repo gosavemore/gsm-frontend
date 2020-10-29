@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import AddToCart from './AddToCart'
 
 const ProductCard = (props) => {
@@ -9,6 +9,13 @@ const ProductCard = (props) => {
     description,
     stock,
   } = props.product
+
+  // const [cart, setCart] = useState([])
+
+  // const addToCart = (el) => {
+  //   setCart([...cart, el])
+  // }
+
   return (
     // <div class='row'>
     <div class='col s12 m3'>
@@ -19,7 +26,7 @@ const ProductCard = (props) => {
           <p>{shortDescription} </p>
           <p>{description} </p>
           <p>{stock} </p>
-          <AddToCart data={productName} />
+          <AddToCart data={props}/> 
         </div>{' '}
       </div>
     </div>
