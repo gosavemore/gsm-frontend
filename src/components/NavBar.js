@@ -42,6 +42,15 @@ const NavBar = ({ placeholder, handleChange }) => {
               <Link className="navLink track" to="/tracking">
                 Track Order
               </Link>
+              <Link
+                className="signout"
+                onClick={() => {
+                  localStorage.removeItem("token");
+                }}
+                to={`/`}
+              >
+                Signout
+              </Link>
             </li>
           ) : (
             <>
