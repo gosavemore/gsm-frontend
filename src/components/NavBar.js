@@ -19,7 +19,6 @@ const NavBar = ({ placeholder, handleChange }) => {
 
   const handleSignOut = () => {
     dispatch(signOut(history));
-    setUser(state);
   };
 
   useEffect(() => {
