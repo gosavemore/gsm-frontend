@@ -14,7 +14,7 @@ const Login = () => {
 
   return (
     <div style={{ maxWidth: '800px', margin: 'auto', padding: '20px' }}>
-      <h1>Login</h1>
+      <h4>Login</h4>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>Username</label>
         <input type='text' id='username' name='username' ref={register} />

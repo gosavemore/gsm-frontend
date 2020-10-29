@@ -12,6 +12,7 @@ import Cart from './components/Cart'
 import GetCart from './components/GetCart'
 import NavBar from './components/NavBar'
 import Tracking from './components/Tracking'
+import Footer from './components/Footer'
 import { useDispatch } from 'react-redux'
 import { getProducts } from './redux/actions/productsActions'
 
@@ -38,6 +39,11 @@ function App() {
           <Route exact path='/admin/addProducts' component={AddProduct} />
         </div>
       </header>
+      <footer>
+        <div>
+          <Footer />
+        </div>
+      </footer>
     </div>
   )
 }

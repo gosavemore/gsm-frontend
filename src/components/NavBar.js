@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import GoSaveMoreLogoHeader from '../assets/GoSaveMoreLogoHeader.png'
 
 const NavBar = () => {
   return (
@@ -50,7 +51,7 @@ const NavBar = () => {
         </div> */}
         <ul id='nav' class='right  blue-text text-darken-2'>
           <li>
-            <Link className='navLink home' to='/'>
+            <Link className='navLink home' to='/' src={GoSaveMoreLogoHeader}>
               Home
             </Link>
           </li>

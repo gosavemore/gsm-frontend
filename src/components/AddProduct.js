@@ -21,7 +21,7 @@ const AddProduct = () => {
 
   return (
     <div style={{ maxWidth: '800px', margin: 'auto', padding: '20px' }}>
-      <h1>Add a new Product</h1>
+      <h4>Add a new Product</h4>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>Product Name:</label>
         <input type='text' id='productName' name='productName' ref={register} />
