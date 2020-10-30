@@ -4,6 +4,10 @@ import { useSelector, useDispatch } from "react-redux";
 import GoSaveMoreLogoHeader from "../assets/GoSaveMoreLogoHeader.png";
 import SearchBar from "./SearchBar";
 import { logOut } from "../redux/actions/authActions";
+// import 'materialize-css';
+// import 'materialize-css/dist/css/materialize.min.css';
+import M from 'materialize-css'
+import options from 'materialize-css'
 
 const NavBar = ({ placeholder, handleChange }) => {
   const [user, setUser] = useState({
@@ -24,6 +28,12 @@ const NavBar = ({ placeholder, handleChange }) => {
   useEffect(() => {
     setUser(state);
   }, [state, user]);
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+  });
 
   return (
      <div>
@@ -89,8 +99,10 @@ const NavBar = ({ placeholder, handleChange }) => {
     
 
   <ul class="sidenav" id="mobile-demo">
-      <div className="navbar">
-      <div class="nav-wrapper">
+      <div> 
+      {/* className="navbar"> */}
+      <div> 
+      {/* class="nav-wrapper"> */}
         {/* <ul class="right hide-on-med-and-down"> */}
         <>
           <Link style={{ textAlign: "center" }} className="navLink home" to="/">
@@ -144,6 +156,7 @@ const NavBar = ({ placeholder, handleChange }) => {
           )}
         </ul>
         </div>
+   
       </div>
   </ul>
           </div>
