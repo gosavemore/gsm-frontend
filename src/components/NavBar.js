@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import GoSaveMoreLogoHeader from "../assets/GoSaveMoreLogoHeader.png";
 import SearchBar from "./SearchBar";
-import { signOut } from "../redux/actions/authActions";
+import { logOut } from "../redux/actions/authActions";
 
 const NavBar = ({ placeholder, handleChange }) => {
   const [user, setUser] = useState({
@@ -17,13 +17,13 @@ const NavBar = ({ placeholder, handleChange }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const handleSignOut = () => {
-    dispatch(signOut(history));
+  const handleLogOut = () => {
+    dispatch(logOut(history));
   };
 
   useEffect(() => {
     setUser(state);
-  }, [state]);
+  }, [state, user]);
 
   return (
     <nav>
@@ -63,21 +63,16 @@ const NavBar = ({ placeholder, handleChange }) => {
                 </Link>
               </li>
               <li>
-                <button className="signout" onClick={handleSignOut}>
-                  Signout
+                <button className="signout" onClick={handleLogOut}>
+                  Logout
                 </button>
               </li>
             </>
           ) : (
             <>
               <li>
-                <Link className="navLink register" to="/register">
-                  Register New User
-                </Link>
-              </li>
-              <li>
                 <Link className="navLink login" to="/login">
-                  Login Existing User
+                  Login
                 </Link>
               </li>
             </>
@@ -89,49 +84,3 @@ const NavBar = ({ placeholder, handleChange }) => {
 };
 
 export default NavBar;
-
-{
-  /* <div class='nav-wrapper'>     ---- MOBILE VIEW FIX ATTEMP ---
-          <a href='#' class='brand-logo'>
-            GoSaveMore
-          </a>
-          <ul id='nav-mobile' class='right hide-on-med-and-down'>
-            <li>
-              <Link className='navLink home' to='/'>
-                Home
-              </Link>
-            </li>
-
-            <li>
-              <Link className='navLink searchBar' to='/searchBar'>
-                MAKE THIS A SEARCH BAR
-              </Link>
-            </li>
-            <li>
-              <Link className='navLink register' to='/register'>
-                Register New User
-              </Link>
-            </li>
-            <li>
-              <Link className='navLink login' to='/login'>
-                Login Existing User
-              </Link>
-            </li>
-            <li>
-              <Link className='navLink track' to='/tracking'>
-                Track Order
-              </Link>
-            </li>
-            <li>
-              <Link className='navLink cart' to='/cart'>
-                Cart
-              </Link>
-            </li>
-            <li>
-              <Link className='navLink addProduct' to='/admin/addProducts'>
-                Admin Add Products
-              </Link>
-            </li>
-          </ul>
-        </div> */
-}

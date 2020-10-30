@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -27,8 +28,14 @@ const Login = () => {
           {" "}
           Submit{" "}
         </button>
-        <img src={undraw_Add_user}></img>
       </form>
+      <div>
+        <p>New to GoSaveMore?</p>
+        <Link to="/register">Register</Link>
+      </div>
+      <>
+        <img src={undraw_Add_user} />
+      </>
     </div>
   );
 };
