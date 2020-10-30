@@ -28,6 +28,8 @@ const NavBar = ({ placeholder, handleChange }) => {
   return (
     <nav>
       <div className="navbar">
+      <div class="nav-wrapper">
+        {/* <ul class="right hide-on-med-and-down"> */}
         <>
           <Link style={{ textAlign: "center" }} className="navLink home" to="/">
             <img
@@ -37,7 +39,7 @@ const NavBar = ({ placeholder, handleChange }) => {
             ></img>
           </Link>
         </>
-        <ul id="nav" class="right  blue-text text-darken-2">
+        <ul id="nav" class="right hide-on-med-and-down">
           <li>
             <SearchBar placeholder={placeholder} handleChange={handleChange} />
           </li>
@@ -78,6 +80,7 @@ const NavBar = ({ placeholder, handleChange }) => {
             </>
           )}
         </ul>
+        </div>
       </div>
     </nav>
   );
