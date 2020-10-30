@@ -51,7 +51,7 @@ function App() {
         FREE SHIPPING FOR ORDERS OVER $49
       </h5>
       <header className="App-header">
-        <NavBar placeholder={"search product"} handleChange={handleChange} />
+        <NavBar placeholder={"Product Search"} handleChange={handleChange} />
         <div>
           <Switch>
             <Route
