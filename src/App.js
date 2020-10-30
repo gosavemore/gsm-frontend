@@ -22,6 +22,8 @@ function App() {
     searchField: '',
   })
 
+  console.log('search::::', search)
+
   // const [cart, setCart] = useState({
   //   user_id: 1,
   //   product_id: 2,
@@ -44,6 +46,7 @@ function App() {
 
   // search product if exists
   let filteredProduct
+  console.log('filteredProduct::::', filteredProduct)
   if (search.searchField) {
     filteredProduct = products.filter((product) =>
       product.productName.toLowerCase().includes(search.searchField)
