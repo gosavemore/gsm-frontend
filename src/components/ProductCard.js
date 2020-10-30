@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import {  useDispatch } from "react-redux";
 import { addToCart } from "../redux/actions/cartActions";
 
 const ProductCard = (props) => {
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart.item);
   let product = props.product;
 
   const {
@@ -16,12 +15,7 @@ const ProductCard = (props) => {
   } = props.product;
 
   const handleClick = () => {
-    if (product.id === cart.product_id) {
-      console.log("this is true", product.id);
-    } else {
-      console.log("this is false", product.id);
-    }
-    dispatch(addToCart(product));
+    dispatch(addToCart(product, "testing"));
   };
 
   return (
