@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
 
-import Login from "./components/Login";
-import Register from "./components/Register";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 import AddProduct from "./components/AddProduct";
-import Homepage from "./components/Homepage";
-import NavBar from "./components/NavBar";
+import Homepage from "./pages/Homepage";
+import NavBar from "./pages/NavBar";
 import Tracking from "./components/Tracking";
-import Footer from "./components/Footer";
+import Footer from "./pages/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "./redux/actions/productsActions";
 import PrivateRoute from "./redux/util/privateRoute";
