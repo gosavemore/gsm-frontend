@@ -24,10 +24,10 @@ const ProductCard = (props) => {
       <div class='card'>
         <div class='card-content'>
           <h3>{productName} </h3>
-          <p>{price} </p>
+          <p>${price}.00 </p>
           <p>{shortDescription} </p>
           <p>{description} </p>
-          <p>{stock} </p>
+          <p>Only {stock} left in stock!</p>
           <button
             class='btn waves-effect waves-light'
             type='submit'
