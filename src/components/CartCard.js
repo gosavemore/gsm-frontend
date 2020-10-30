@@ -1,11 +1,29 @@
-import React from "react";
+import React from 'react'
 
-const CartCard = () => {
+const CartCard = (props) => {
+  let product = props.product
+
+  const {
+    productName,
+    price,
+    shortDescription,
+    description,
+    quantity,
+  } = props.product
+
   return (
-    <>
-      <h3>Cart Card</h3>
-    </>
-  );
-};
+    <div class='col s12 m3'>
+      <div class='card'>
+        <div class='card-content'>
+          <h3>{productName} </h3>
+          <p>${price}.00 </p>
+          <p>{shortDescription} </p>
+          <p>{description} </p>
+          <p>Qty: {quantity}</p>
+        </div>
+      </div>
+    </div>
+  )
+}
 
-export default CartCard;
+export default CartCard
