@@ -31,7 +31,7 @@ const Login = () => {
       </form>
       <div>
         <p>New to GoSaveMore?</p>
-        <Link to="/register">Register</Link>
+        <button style={{ marginBottom: '20px'}} class="btn waves-effect waves-light"  to="/register">Register</button>
       </div>
       <>
         <img src={undraw_Add_user} />

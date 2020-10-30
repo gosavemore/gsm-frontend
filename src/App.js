@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
+
 import Login from "./components/Login";
 import Register from "./components/Register";
 import AddProduct from "./components/AddProduct";
@@ -50,7 +51,7 @@ function App() {
         FREE SHIPPING FOR ORDERS OVER $49
       </h5>
       <header className="App-header">
-        <NavBar placeholder={"search product"} handleChange={handleChange} />
+        <NavBar placeholder={"Product Search"} handleChange={handleChange} />
         <div>
           <Switch>
             <Route

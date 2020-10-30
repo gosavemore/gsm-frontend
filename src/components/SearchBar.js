@@ -4,7 +4,7 @@ const SearchBar = ({ placeholder, handleChange }) => {
   return (
     <div
       className='searchBar'
-      style={{ margin: '10px', backgroundColor: 'white' }}
+      style={{ padding: '10px', margin: '10px', backgroundColor: 'white' }}
       class='input-field'
     >
       <input
