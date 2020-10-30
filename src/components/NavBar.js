@@ -63,9 +63,9 @@ const NavBar = ({ placeholder, handleChange }) => {
                 </Link>
               </li>
               <li>
-                <button className="signout" onClick={handleLogOut}>
+                <Link className="signout" onClick={handleLogOut} to="/tracking">
                   Logout
-                </button>
+                </Link>
               </li>
             </>
           ) : (
