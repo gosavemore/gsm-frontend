@@ -40,6 +40,7 @@ const NavBar = ({ placeholder, handleChange }) => {
             ></img>
           </Link>
         </>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul id="nav" class="right hide-on-med-and-down">
           <li>
             <SearchBar placeholder={placeholder} handleChange={handleChange} />
@@ -100,7 +101,7 @@ const NavBar = ({ placeholder, handleChange }) => {
             ></img>
           </Link>
         </>
-        <ul id="nav" class="right hide-on-med-and-down">
+        <ul id="nav" class="sidenav sidenav-fixed">
           <li>
             <SearchBar placeholder={placeholder} handleChange={handleChange} />
           </li>
