@@ -1,10 +1,10 @@
-import React from "react";
-import {  useDispatch } from "react-redux";
-import { addToCart } from "../redux/actions/cartActions";
+import React from 'react'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../redux/actions/cartActions'
 
 const ProductCard = (props) => {
-  const dispatch = useDispatch();
-  let product = props.product;
+  const dispatch = useDispatch()
+  let product = props.product
 
   const {
     productName,
@@ -12,25 +12,25 @@ const ProductCard = (props) => {
     shortDescription,
     description,
     stock,
-  } = props.product;
+  } = props.product
 
   const handleClick = () => {
-    dispatch(addToCart(product, "testing"));
-  };
+    dispatch(addToCart(product, 'testing'))
+  }
 
   return (
     // <div class='row'>
-    <div class="col s12 m3">
-      <div class="card">
-        <div class="card-content">
+    <div class='col s12 m3'>
+      <div class='card'>
+        <div class='card-content'>
           <h3>{productName} </h3>
           <p>{price} </p>
           <p>{shortDescription} </p>
           <p>{description} </p>
           <p>{stock} </p>
           <button
-            class="btn waves-effect waves-light"
-            type="submit"
+            class='btn waves-effect waves-light'
+            type='submit'
             onClick={handleClick}
           >
             Add To Cart
@@ -39,7 +39,7 @@ const ProductCard = (props) => {
       </div>
     </div>
     // </div>
-  );
-};
+  )
+}
 
-export default ProductCard;
+export default ProductCard

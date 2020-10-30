@@ -10,11 +10,3 @@ button {
   background-color: #e63946 !important;
 }
 
-.searchBar {
-  color: green !important;
-}
-
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems, options);
-  });
