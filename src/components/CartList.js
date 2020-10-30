@@ -1,35 +1,39 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { getCart } from '../redux/actions/cartActions'
-import CartCart from './CartCard'
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getCart } from "../redux/actions/cartActions";
+import CartCart from "./CartCard";
 
 const CartList = () => {
-  // get shopping cart data from redux-store
-  const cartData = useSelector((state) => state.cart)
-
-  // DISPLAY DATA BELOW ===>>>
-  console.log('cart data::::============>', cartData)
-  // const dispatch = useDispatch()
-
-  // useEffect(() => {
-  //   dispatch(getCart())
-  // }, [dispatch])
-
-  const { productName, price, shortDescription, description, stock } = cartData
-
-  console.log('p!!!!!!!!!!!!!!!!', cartData.items)
+  const cartData = useSelector((state) => state.cart);
+  const cartTotalPrice = useSelector((state) => state.cart.totalPrice);
+  const cartTotalItems = useSelector((state) => state.cart.totalItems);
 
   return (
     <>
       <h3>Your Shopping Cart</h3>
       {cartData.items.map((product) => {
-        return <CartCart key={product.id} product={product} />
+        return (
+          <CartCart
+            key={product.id}
+            product={product}
+            cartTotalPrice={cartTotalPrice}
+            cartTotalItems={cartTotalItems}
+          />
+        );
       })}
+      <div class="card">
+        <div class="card-content">
+          <h3> Total Items</h3>
+          <p>{cartTotalItems}</p>
+          <h3> Total Price</h3>
+          <p>${cartTotalPrice}</p>
+        </div>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default CartList
+export default CartList;
 
 // FOR FUN
 // MAKE CART VERY SECURE USING SHA256
