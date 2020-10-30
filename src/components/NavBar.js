@@ -1,55 +1,55 @@
-import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import GoSaveMoreLogoHeader from "../assets/GoSaveMoreLogoHeader.png";
-import SearchBar from "./SearchBar";
-import { signOut } from "../redux/actions/authActions";
+import React, { useState, useEffect } from 'react'
+import { Link, useHistory } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import GoSaveMoreLogoHeader from '../assets/GoSaveMoreLogoHeader.png'
+import SearchBar from './SearchBar'
+import { signOut } from '../redux/actions/authActions'
 
 const NavBar = ({ placeholder, handleChange }) => {
   const [user, setUser] = useState({
     user: [],
-    isLoading: "",
-    isAuth: "",
-    isSuccess: "",
-  });
+    isLoading: '',
+    isAuth: '',
+    isSuccess: '',
+  })
 
-  const state = useSelector((state) => state.auth);
-  const dispatch = useDispatch();
-  const history = useHistory();
+  const state = useSelector((state) => state.auth)
+  const dispatch = useDispatch()
+  const history = useHistory()
 
   const handleSignOut = () => {
-    dispatch(signOut(history));
-  };
+    dispatch(signOut(history))
+  }
 
   useEffect(() => {
-    setUser(state);
-  }, [state]);
+    setUser(state)
+  }, [state])
 
   return (
     <nav>
-      <div className="navbar">
+      <div className='navbar'>
         <>
-          <Link style={{ textAlign: "center" }} className="navLink home" to="/">
+          <Link style={{ textAlign: 'center' }} className='navLink home' to='/'>
             <img
-              className="navLink image"
+              className='navLink image'
               src={GoSaveMoreLogoHeader}
-              style={{ padding: "10px" }}
+              style={{ padding: '10px' }}
             ></img>
           </Link>
         </>
-        <ul id="nav" class="right  blue-text text-darken-2">
+        <ul id='nav' class='right  blue-text text-darken-2'>
           <li>
             <SearchBar placeholder={placeholder} handleChange={handleChange} />
           </li>
           <li>
-            <Link className="navLink cart" to="/cart">
+            <Link className='navLink cart' to='/cart'>
               Cart
             </Link>
           </li>
           {state.isAdmin ? (
             <>
               <li>
-                <Link className="navLink addProduct" to="/admin/addProducts">
+                <Link className='navLink addProduct' to='/admin/addProducts'>
                   Admin Add Products
                 </Link>
               </li>
@@ -58,12 +58,12 @@ const NavBar = ({ placeholder, handleChange }) => {
           {state.isAuth ? (
             <>
               <li>
-                <Link className="navLink track" to="/tracking">
+                <Link className='navLink track' to='/tracking'>
                   Orders
                 </Link>
               </li>
               <li>
-                <button className="signout" onClick={handleSignOut}>
+                <button className='signout' onClick={handleSignOut}>
                   Signout
                 </button>
               </li>
@@ -71,12 +71,12 @@ const NavBar = ({ placeholder, handleChange }) => {
           ) : (
             <>
               <li>
-                <Link className="navLink register" to="/register">
+                <Link className='navLink register' to='/register'>
                   Register New User
                 </Link>
               </li>
               <li>
-                <Link className="navLink login" to="/login">
+                <Link className='navLink login' to='/login'>
                   Login Existing User
                 </Link>
               </li>
@@ -85,13 +85,12 @@ const NavBar = ({ placeholder, handleChange }) => {
         </ul>
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar
 
-{
-  /* <div class='nav-wrapper'>     ---- MOBILE VIEW FIX ATTEMP ---
+/* <div class='nav-wrapper'>     ---- MOBILE VIEW FIX ATTEMP ---
           <a href='#' class='brand-logo'>
             GoSaveMore
           </a>
@@ -134,4 +133,3 @@ export default NavBar;
             </li>
           </ul>
         </div> */
-}
