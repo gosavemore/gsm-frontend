@@ -30,10 +30,15 @@ function App() {
   };
 
   // search product if exists
-  let filteredProduct;
+
+  let filteredProduct
+  console.log('filteredProduct::::', filteredProduct)
+
+
+
   if (search.searchField) {
     filteredProduct = products.filter((product) =>
-      product.productName.toLowerCase().includes(search.searchField)
+      product.productName.toLowerCase().startsWith(search.searchField)
     );
   } else {
     filteredProduct = products;

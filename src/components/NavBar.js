@@ -59,7 +59,7 @@ const NavBar = ({ placeholder, handleChange }) => {
             <>
               <li>
                 <Link className="navLink track" to="/tracking">
-                  Track Order
+                  Orders
                 </Link>
               </li>
               <li>
