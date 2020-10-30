@@ -27,7 +27,7 @@ const ProductCard = (props) => {
           <p>{description} </p>
           <p>{stock} </p>
           <AddToCart data={props}/> 
-        </div>{' '}
+        </div>
       </div>
     </div>
     // </div>
