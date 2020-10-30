@@ -10,6 +10,6 @@ button {
   background-color: #e63946 !important;
 }
 
-.navLink image {
-  alignitems: 'center';
+.searchBar {
+  color: green !important;
 }
