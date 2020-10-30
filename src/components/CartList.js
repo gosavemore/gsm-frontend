@@ -1,0 +1,20 @@
+import React from "react";
+
+const CartList = () => {
+  return (
+    <>
+      <h3>CartList</h3>
+    </>
+  );
+};
+
+export default CartList;
+
+// FOR FUN
+// MAKE CART VERY SECURE USING SHA256
+
+// PLAN
+// CREATE UNIQUE TOKEN FOR EACH CART ITEM WHEN ADDED TO CART
+// STORE TOKEN ON BE UNDER THAT USER
+// WHEN ACCESSING CART, CHECK TO SEE IF TOKEN IS AVAILABLE FOR EACH ITEM
+// IF NO DISPLAY IT, IF NOT, DO NOT DISPLAY

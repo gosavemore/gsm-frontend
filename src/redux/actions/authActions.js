@@ -9,7 +9,7 @@ const {
   REGISTER_USER_START,
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAIL,
-  SIGNOUT_USER,
+  LOGOUT_USER,
 } = types;
 
 // LOGIN USER ACTIONS
@@ -37,8 +37,8 @@ export const registerUser = (data) => (dispatch) => {
 };
 
 // SIGNOUT
-export const signOut = (history) => (dispatch) => {
+export const logOut = (history) => (dispatch) => {
   localStorage.removeItem("token");
-  dispatch({ type: SIGNOUT_USER });
+  dispatch({ type: LOGOUT_USER });
   history.push("/login");
 };

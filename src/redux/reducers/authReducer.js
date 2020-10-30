@@ -7,7 +7,7 @@ const {
   REGISTER_USER_START,
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAIL,
-  SIGNOUT_USER,
+  LOGOUT_USER,
 } = types;
 
 const initialState = {
@@ -66,7 +66,7 @@ const authReducer = (state = initialState, { type, payload }) => {
         isSuccess: false,
         error: payload,
       };
-    case SIGNOUT_USER:
+    case LOGOUT_USER:
       return {
         ...state,
         error: "",
