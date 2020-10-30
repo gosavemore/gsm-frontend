@@ -3,33 +3,20 @@ import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import SearchBar from "./components/SearchBar";
-import ProductList from "./components/ProductList";
 import AddProduct from "./components/AddProduct";
-import EditProduct from "./components/EditProduct";
-import GetProduct from "./components/GetProduct";
 import Homepage from "./components/Homepage";
-import Cart from "./components/Cart";
-import GetCart from "./components/GetCart";
 import NavBar from "./components/NavBar";
 import Tracking from "./components/Tracking";
 import Footer from "./components/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "./redux/actions/productsActions";
 import PrivateRoute from "./redux/util/privateRoute";
+import CartList from "./components/CartList";
 
 function App() {
   const [search, setSearch] = useState({
     searchField: "",
   });
-
-  // const [cart, setCart] = useState({
-  //   user_id: 1,
-  //   product_id: 2,
-  //   savedForLater: true,
-  //   quantity: 5,
-  // })
-  // console.log(cart)
 
   const products = useSelector((state) => state.products.products);
   const dispatch = useDispatch();
@@ -38,7 +25,6 @@ function App() {
     dispatch(getProducts());
   }, [dispatch]);
 
-  // FIX SEARCH BAR LINE 32 COMPONENT={} and tracking
   const handleChange = (e) => {
     setSearch({ searchField: e.target.value });
   };
@@ -69,7 +55,7 @@ function App() {
             />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/cart" component={GetCart} />
+            <Route exact path="/cart" component={CartList} />
             <Route exact path="/admin/addProducts" component={AddProduct} />
             <PrivateRoute exact path="/tracking" component={Tracking} />
           </Switch>

@@ -1,58 +1,22 @@
-import { types } from '../actions/index'
+import { types } from "../actions/index";
 
-const {  
-  GET_CART_START,
-  GET_CART_SUCCESS,
-  GET_CART_FAIL,
-  ADD_CART_START,
-  ADD_CART_SUCCESS,
-  ADD_CART_FAIL,
-} = types
+const { ADD_TO_CART } = types;
 
 const initialState = {
-  cart: []
-  err: '',
-  isLoading: false,
-}
+  item: [],
+};
 
 const cartReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case GET_CART_START:
+    case ADD_TO_CART:
       return {
         ...state,
-        isLoading: true,
-      }
-    case GET_CART_SUCCESS:
-      return {
-        ...state,
-        cart: payload
-        isLoading: false,
-      }
-      case GET_CART_FAIL: 
-        return {
-          ...state,
-          isLoading: false
-          err: payload
-      }
-      case ADD_CART_START:
-        return {
-          ...state,
-          isLoading: true,
-        };
-      case ADD_CART_SUCCESS:
-        return {
-          ...state,
-          cart: payload,
-        };
-      case ADD_CART_FAIL:
-        return {
-          ...state,
-          isLoading: false,
-          err: payload,
-        };
-    default:
-      return state
-  }
-}
+        item: state.item.concat(payload),
+      };
 
-export default cartReducer
+    default:
+      return state;
+  }
+};
+
+export default cartReducer;
