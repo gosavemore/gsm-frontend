@@ -9,6 +9,7 @@ import Homepage from "./pages/Homepage";
 import NavBar from "./pages/NavBar";
 import Tracking from "./components/Orders";
 import Footer from "./pages/Footer";
+import Banner from "./components/Banner";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "./redux/actions/productsActions";
 import PrivateRoute from "./redux/util/privateRoute";
@@ -45,11 +46,9 @@ function App() {
 
   return (
     <div className="App">
-      <h5 className="top" class="center-align">
-        FREE SHIPPING FOR ORDERS OVER $49
-      </h5>
+      <Banner />
       <header className="App-header">
-        <NavBar placeholder={"Product Search"} handleChange={handleChange} />
+        <NavBar placeholder={"Search Product"} handleChange={handleChange} />
         <div>
           <Switch>
             <Route
