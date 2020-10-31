@@ -1,0 +1,21 @@
+.product {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+
+  &-name {
+    text-align: center;
+  }
+
+  &-button {
+    margin: 0 3rem;
+  }
+  .card-title {
+    font-size: 16px;
+    font-weight: bolder;
+  }
+
+  .btn {
+    margin: 0 6rem;
+  }
+}

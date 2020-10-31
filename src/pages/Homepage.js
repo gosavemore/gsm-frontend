@@ -1,5 +1,5 @@
 import React from "react";
-import ProductList from "./ProductList";
+import ProductList from "../components/ProductList";
 import undrawGiftBox from "../assets/undraw_Gift_box.svg";
 
 const Homepage = ({ filteredProduct }) => {

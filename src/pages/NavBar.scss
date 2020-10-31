@@ -1,0 +1,17 @@
+#logo {
+  height: 2.5rem;
+  padding-top: 1rem;
+  margin-left: 2rem;
+}
+
+.nav-item {
+  padding: 0 2rem;
+  display: flex;
+}
+
+@media only screen and (max-width: 600px) {
+  #mobile-nav {
+    display: flex;
+    flex-direction: row;
+  }
+}

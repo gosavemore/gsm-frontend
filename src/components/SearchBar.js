@@ -1,23 +1,18 @@
-import React from 'react'
+import React from "react";
+import { TextInput } from "react-materialize";
 
 const SearchBar = ({ placeholder, handleChange }) => {
   return (
-    <div
-      className='searchBar'
-      style={{ padding: '10px', margin: '10px', backgroundColor: 'white' }}
-      class='input-field'
-    >
-      <input
-        id='search'
-        type='search'
+    <>
+      <TextInput
+        id="search"
+        type="search"
         required
-        className='search'
-        type='search'
         placeholder={placeholder}
         onChange={handleChange}
       />
-    </div>
-  )
-}
+    </>
+  );
+};
 
-export default SearchBar
+export default SearchBar;
