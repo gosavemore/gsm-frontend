@@ -16,6 +16,8 @@ const NavBar = ({ placeholder, handleChange }) => {
     isSuccess: "",
   });
 
+  const cartCount = useSelector((state) => state.cart.totalItems)
+
   const state = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -55,7 +57,7 @@ const NavBar = ({ placeholder, handleChange }) => {
           <div>
             <NavItem>
               <Link className="navLink cart" to="/cart">
-                Cart
+                Cart {cartCount}
               </Link>
             </NavItem>
             <NavItem>
@@ -71,6 +73,7 @@ const NavBar = ({ placeholder, handleChange }) => {
           </div>
         ) : (
           <div>
+          {cartCount}
           <div>
             <NavItem>
               <Link className="navLink cart" to="/cart">
