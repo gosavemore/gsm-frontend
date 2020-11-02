@@ -6,6 +6,7 @@
 
     &-quantity {
       font-size: 2rem;
+      padding: 0 2rem;
     }
   }
   &-product {
@@ -16,6 +17,16 @@
   }
   .card-title {
     font-size: 2rem;
+  }
+
+  &-buttons {
+    display: flex;
+    justify-content: center;
+
+    button {
+      background-color: #536b8e !important;
+      color: #fff !important;
+    }
   }
 }
 

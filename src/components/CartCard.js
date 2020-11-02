@@ -1,16 +1,44 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Card, CardTitle } from "react-materialize";
+import { Button, Icon } from "react-materialize";
+import { useDispatch } from "react-redux";
+import {
+  addItemQuantity,
+  decreaseItemQuantity,
+} from "../redux/actions/cartActions";
 import "./CartCard.scss";
 
 const CartCard = (props) => {
   const {
+    id,
     productName,
     price,
     shortDescription,
-    description,
     quantity,
     image,
   } = props.product;
+
+  const dispatch = useDispatch();
+
+  const [localQuantity, setLocalQuantity] = useState(0);
+
+  useEffect(() => {
+    setLocalQuantity(quantity);
+  }, [localQuantity]);
+
+  const handleIncrement = (e) => {
+    e.preventDefault();
+    setLocalQuantity(localQuantity + 1);
+    dispatch(addItemQuantity(id));
+  };
+
+  const handleDecrement = (e) => {
+    e.preventDefault();
+    setLocalQuantity(localQuantity - 1);
+    dispatch(decreaseItemQuantity(id));
+  };
+
+  console.log("ths is the product", localQuantity);
 
   return (
     <div className="cart">
@@ -26,7 +54,23 @@ const CartCard = (props) => {
         <h5>Short Description</h5>
         <p>{shortDescription} </p>
         <h5>Quantity</h5>
-        <p className="cart-cards-quantity">{quantity}</p>
+        <div className="cart-buttons">
+          <Button
+            flat
+            node="button"
+            waves="light"
+            icon={<Icon>remove</Icon>}
+            onClick={handleDecrement}
+          ></Button>
+          <p className="cart-cards-quantity">{localQuantity}</p>
+          <Button
+            flat
+            node="button"
+            waves="light"
+            icon={<Icon>add</Icon>}
+            onClick={handleIncrement}
+          ></Button>
+        </div>
       </Card>
     </div>
   );

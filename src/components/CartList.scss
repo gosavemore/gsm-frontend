@@ -1,7 +1,7 @@
 .cart-list {
+  background-color: #f8f9fa;
   display: flex;
   justify-content: center;
-  margin: 0 2rem;
   margin-bottom: 5rem;
 
   &-product {
@@ -21,10 +21,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f8f9fa;
+  background-color: #fff;
   height: 500px;
   width: 500px;
-  margin: 5rem 0;
+  margin: 2rem 0;
+  margin-right: 5rem;
 
   &-info {
     h3 {
