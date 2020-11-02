@@ -23,19 +23,30 @@ const CartCard = (props) => {
 
   const [localQuantity, setLocalQuantity] = useState(0);
 
+  let {totalItems, totalPrice, setProducts} = props;
+
   useEffect(() => {
     setLocalQuantity(quantity);
+    
   }, [localQuantity]);
 
   const handleIncrement = (e) => {
     e.preventDefault();
     setLocalQuantity(localQuantity + 1);
+    setProducts({
+      totalItems: totalItems += 1, 
+      totalPrice: totalPrice + price
+    });
     dispatch(addItemQuantity(id));
   };
 
   const handleDecrement = (e) => {
     e.preventDefault();
-    setLocalQuantity(localQuantity - 1);
+    setLocalQuantity({totalItems: totalItems -= 1});
+    // setProducts({
+    //   totalItems: totalItems -= 1, 
+    //   totalPrice: totalPrice - price
+    // });
     dispatch(decreaseItemQuantity(id));
   };
 
