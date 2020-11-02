@@ -25,8 +25,6 @@ const CartCard = (props) => {
         <h5>${price}.00 </h5>
         <h5>Short Description</h5>
         <p>{shortDescription} </p>
-        <h5>Description</h5>
-        <p>{description} </p>
         <h5>Quantity</h5>
         <p>Qty: {quantity}</p>
       </Card>
