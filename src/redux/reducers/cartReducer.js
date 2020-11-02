@@ -1,5 +1,5 @@
 import { types } from "../actions/index";
-const { ADD_TO_CART, INCREMENT_ITEM_QUANTITY } = types;
+const { ADD_TO_CART, INCREMENT_ITEM_QUANTITY, DECREMENT_ITEM_QUANTITY } = types;
 const initialState = {
   items: [],
   totalItems: 0,
@@ -43,11 +43,24 @@ const cartReducer = (state = initialState, { type, payload }) => {
         };
       }
     case INCREMENT_ITEM_QUANTITY:
-      for (let item in state.items) {
-        if (item.id === payload.id) {
+      for (let item of state.items) {
+        if (item.id === payload) {
           item.quantity += 1;
         }
       }
+      return state;
+
+    case DECREMENT_ITEM_QUANTITY:
+      for (let item of state.items) {
+        if (item.id === payload) {
+          if (item.quantity === 0) {
+            item.quantity = 0;
+          } else {
+            item.quantity -= 1;
+          }
+        }
+      }
+      return state;
 
     default:
       return state;
