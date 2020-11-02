@@ -15,7 +15,6 @@ const ProductCard = (props) => {
   };
 
   return (
-    // <div class='row'>
     <Card className="product">
       <CardTitle image={image} className="product-name">
         {productName}
@@ -24,7 +23,6 @@ const ProductCard = (props) => {
         Add To Cart
       </Button>
     </Card>
-    // </div>
   );
 };
 

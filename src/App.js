@@ -7,13 +7,13 @@ import Register from "./pages/Register";
 import AddProduct from "./components/AddProduct";
 import Homepage from "./pages/Homepage";
 import NavBar from "./pages/NavBar";
-import Tracking from "./components/Orders";
 import Footer from "./pages/Footer";
 import Banner from "./components/Banner";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "./redux/actions/productsActions";
 import PrivateRoute from "./redux/util/privateRoute";
 import CartList from "./components/CartList";
+import Orders from "./components/Orders";
 
 function App() {
   const [search, setSearch] = useState({
@@ -60,7 +60,7 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/cart" component={CartList} />
             <Route exact path="/admin/addProducts" component={AddProduct} />
-            <PrivateRoute exact path="/tracking" component={Tracking} />
+            <PrivateRoute exact path="/orders" component={Orders} />
           </Switch>
         </div>
       </header>
