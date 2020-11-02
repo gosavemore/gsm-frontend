@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCart } from "../redux/actions/cartActions";
 import CartCart from "./CartCard";
+import "./CartList.scss";
 
 const CartList = () => {
   const cartData = useSelector((state) => state.cart);
@@ -9,19 +10,21 @@ const CartList = () => {
   const cartTotalItems = useSelector((state) => state.cart.totalItems);
 
   return (
-    <>
-      <h3>Your Shopping Cart</h3>
-      {cartData.items.map((product) => {
-        return (
-          <CartCart
-            key={product.id}
-            product={product}
-            cartTotalPrice={cartTotalPrice}
-            cartTotalItems={cartTotalItems}
-          />
-        );
-      })}
-      <div class="card">
+    <div class="cart-list">
+      <div className="cart-list-product">
+        <h3>Your Shopping Cart</h3>
+        {cartData.items.map((product) => {
+          return (
+            <CartCart
+              key={product.id}
+              product={product}
+              cartTotalPrice={cartTotalPrice}
+              cartTotalItems={cartTotalItems}
+            />
+          );
+        })}
+      </div>
+      <div class="cart-total">
         <div class="card-content">
           <h3> Total Items</h3>
           <p>{cartTotalItems}</p>
@@ -29,7 +32,7 @@ const CartList = () => {
           <p>${cartTotalPrice}</p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
