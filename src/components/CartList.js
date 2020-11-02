@@ -21,6 +21,7 @@ const CartList = () => {
   }, [cartData])
 
 
+
   return (
     <div class="cart-list">
       <div className="cart-list-product">
@@ -31,6 +32,9 @@ const CartList = () => {
             <CartCart
               key={product.id}
               product={product}
+              setProducts={setProducts}
+              totalItems={products.totalItems}
+              totalPrice={products.totalPrice}
             />
           );
         })}
