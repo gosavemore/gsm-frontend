@@ -42,11 +42,11 @@ const CartCard = (props) => {
 
   const handleDecrement = (e) => {
     e.preventDefault();
-    setLocalQuantity({totalItems: totalItems -= 1});
-    // setProducts({
-    //   totalItems: totalItems -= 1, 
-    //   totalPrice: totalPrice - price
-    // });
+    setLocalQuantity(localQuantity - 1);
+    setProducts({
+      totalItems: totalItems -= 1, 
+      totalPrice: totalPrice - price
+    });
     dispatch(decreaseItemQuantity(id));
   };
 
