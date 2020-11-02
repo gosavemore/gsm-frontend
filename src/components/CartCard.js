@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Card, CardTitle } from "react-materialize";
-import "./CartCard.scss";
 import { Button, Icon } from "react-materialize";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   addItemQuantity,
   decreaseItemQuantity,
 } from "../redux/actions/cartActions";
+import "./CartCard.scss";
 
 const CartCard = (props) => {
   const {
