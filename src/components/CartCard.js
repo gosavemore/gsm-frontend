@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Card, CardTitle } from "react-materialize";
 import "./CartCard.scss";
 import { Button, Icon } from "react-materialize";
@@ -17,19 +17,28 @@ const CartCard = (props) => {
     quantity,
     image,
   } = props.product;
+
   const dispatch = useDispatch();
 
-  const cart = useSelector((state) => state.cart);
+  const [localQuantity, setLocalQuantity] = useState(0);
+
+  useEffect(() => {
+    setLocalQuantity(quantity);
+  }, [localQuantity]);
 
   const handleIncrement = (e) => {
     e.preventDefault();
+    setLocalQuantity(localQuantity + 1);
     dispatch(addItemQuantity(id));
   };
 
   const handleDecrement = (e) => {
     e.preventDefault();
+    setLocalQuantity(localQuantity - 1);
     dispatch(decreaseItemQuantity(id));
   };
+
+  console.log("ths is the product", localQuantity);
 
   return (
     <div className="cart">
@@ -53,7 +62,7 @@ const CartCard = (props) => {
             icon={<Icon>remove</Icon>}
             onClick={handleDecrement}
           ></Button>
-          <p className="cart-cards-quantity">{quantity}</p>
+          <p className="cart-cards-quantity">{localQuantity}</p>
           <Button
             flat
             node="button"
