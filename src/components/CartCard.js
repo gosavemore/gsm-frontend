@@ -18,6 +18,7 @@ const CartCard = (props) => {
     image,
   } = props.product;
 
+
   const dispatch = useDispatch();
 
   const [localQuantity, setLocalQuantity] = useState(0);
@@ -37,8 +38,6 @@ const CartCard = (props) => {
     setLocalQuantity(localQuantity - 1);
     dispatch(decreaseItemQuantity(id));
   };
-
-  console.log("ths is the product", localQuantity);
 
   return (
     <div className="cart">

@@ -6,20 +6,31 @@ import "./CartList.scss";
 
 const CartList = () => {
   const cartData = useSelector((state) => state.cart);
-  const cartTotalPrice = useSelector((state) => state.cart.totalPrice);
-  const cartTotalItems = useSelector((state) => state.cart.totalItems);
+
+  const [products, setProducts] = useState({
+    totalItems: 0,
+    totalPrice: 0
+  })
+
+  useEffect(() => {
+    setProducts({
+      totalItems: cartData.totalItems,
+      totalPrice: cartData.totalPrice
+      
+    })
+  }, [cartData])
+
 
   return (
     <div class="cart-list">
       <div className="cart-list-product">
         <h3>Your Shopping Cart</h3>
-        {cartData.items.map((product) => {
+        {
+          cartData.items.map((product) => {
           return (
             <CartCart
               key={product.id}
               product={product}
-              cartTotalPrice={cartTotalPrice}
-              cartTotalItems={cartTotalItems}
             />
           );
         })}
@@ -27,9 +38,9 @@ const CartList = () => {
       <div class="cart-total">
         <div class="card-total-info">
           <h3> Total Items</h3>
-          <p>{cartTotalItems}</p>
+          <p>{products.totalItems}</p>
           <h3> Total Price</h3>
-          <p>${cartTotalPrice}</p>
+          <p>${products.totalPrice}</p>
         </div>
       </div>
     </div>

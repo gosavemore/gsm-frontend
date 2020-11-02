@@ -46,6 +46,8 @@ const cartReducer = (state = initialState, { type, payload }) => {
       for (let item of state.items) {
         if (item.id === payload) {
           item.quantity += 1;
+          state.totalItems += 1;
+          state.totalPrice += item.price;
         }
       }
       return state;
@@ -57,6 +59,8 @@ const cartReducer = (state = initialState, { type, payload }) => {
             item.quantity = 0;
           } else {
             item.quantity -= 1;
+            state.totalItems -= 1;
+            state.totalPrice -= item.price;
           }
         }
       }
