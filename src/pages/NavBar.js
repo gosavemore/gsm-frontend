@@ -16,6 +16,8 @@ const NavBar = ({ placeholder, handleChange }) => {
     isSuccess: "",
   });
 
+  const cartCount = useSelector((state) => state.cart.totalItems)
+
   const state = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -30,6 +32,7 @@ const NavBar = ({ placeholder, handleChange }) => {
 
   return (
     <Navbar
+    className="navBar"
       alignLinks="right"
       id="mobile-nav"
       menuIcon={<Icon>menu</Icon>}
@@ -45,14 +48,16 @@ const NavBar = ({ placeholder, handleChange }) => {
       }}
     >
       <div className="nav-item">
+      <div>
         <NavItem>
           <SearchBar placeholder={placeholder} handleChange={handleChange} />
         </NavItem>
+        </div>
         {state.isAuth ? (
-          <>
+          <div>
             <NavItem>
               <Link className="navLink cart" to="/cart">
-                Cart
+                Cart {cartCount}
               </Link>
             </NavItem>
             <NavItem>
@@ -65,20 +70,25 @@ const NavBar = ({ placeholder, handleChange }) => {
                 Logout
               </Link>
             </NavItem>
-          </>
+          </div>
         ) : (
-          <>
+          <div>
+          {cartCount}
+          <div>
             <NavItem>
               <Link className="navLink cart" to="/cart">
                 Cart
               </Link>
             </NavItem>
+            </div>
+            <div>
             <NavItem>
               <Link className="navLink login" to="/login">
                 Login
               </Link>
             </NavItem>
-          </>
+          </div>
+          </div>
         )}
       </div>
     </Navbar>
