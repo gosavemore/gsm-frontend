@@ -1,0 +1,36 @@
+.cart-list {
+  display: flex;
+  justify-content: center;
+  margin: 0 2rem;
+
+  &-product {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h3 {
+      text-align: center;
+    }
+  }
+}
+
+.cart-total {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa;
+  height: 500px;
+  width: 500px;
+  margin: 5rem 0;
+
+  &-info {
+    h3 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
+}

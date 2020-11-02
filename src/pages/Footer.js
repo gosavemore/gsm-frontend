@@ -1,14 +1,12 @@
-import React from 'react'
+import React from "react";
+import "./Footer.scss";
 
 const Footer = () => {
   return (
-    <div
-      class='center-align'
-      style={{ maxWidth: '800px', margin: 'auto', padding: '20px' }}
-    >
-      <p>© 2020, GoSaveMore.com, Inc. or its affiliates</p>
+    <div className="footer">
+      <p>© 2020 - GoSaveMore.com</p>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

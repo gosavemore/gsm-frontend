@@ -13,18 +13,20 @@ const CartCard = (props) => {
   } = props.product;
 
   return (
-    <div className="cart-cards">
+    <div className="cart">
       <Card
         header={
           <CardTitle image={image} className="product-name">
             {productName}
           </CardTitle>
         }
+        className="cart-cards"
       >
-        <p>${price}.00 </p>
+        <h5>${price}.00 </h5>
+        <h5>Short Description</h5>
         <p>{shortDescription} </p>
-        <p>{description} </p>
-        <p>Qty: {quantity}</p>
+        <h5>Quantity</h5>
+        <p className="cart-cards-quantity">{quantity}</p>
       </Card>
     </div>
   );

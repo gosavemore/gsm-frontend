@@ -1,8 +1,26 @@
-cart {
+.cart {
+  &-cards {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+
+    &-quantity {
+      font-size: 2rem;
+    }
+  }
   &-product {
     font-size: 2rem;
     font-weight: bold;
     text-align: center;
     display: flex;
   }
+  .card-title {
+    font-size: 2rem;
+  }
+}
+
+.product-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
