@@ -30,6 +30,7 @@ const NavBar = ({ placeholder, handleChange }) => {
 
   return (
     <Navbar
+    className="navBar"
       alignLinks="right"
       id="mobile-nav"
       menuIcon={<Icon>menu</Icon>}
@@ -45,11 +46,13 @@ const NavBar = ({ placeholder, handleChange }) => {
       }}
     >
       <div className="nav-item">
+      <div>
         <NavItem>
           <SearchBar placeholder={placeholder} handleChange={handleChange} />
         </NavItem>
+        </div>
         {state.isAuth ? (
-          <>
+          <div>
             <NavItem>
               <Link className="navLink cart" to="/cart">
                 Cart
@@ -65,20 +68,24 @@ const NavBar = ({ placeholder, handleChange }) => {
                 Logout
               </Link>
             </NavItem>
-          </>
+          </div>
         ) : (
-          <>
+          <div>
+          <div>
             <NavItem>
               <Link className="navLink cart" to="/cart">
                 Cart
               </Link>
             </NavItem>
+            </div>
+            <div>
             <NavItem>
               <Link className="navLink login" to="/login">
                 Login
               </Link>
             </NavItem>
-          </>
+          </div>
+          </div>
         )}
       </div>
     </Navbar>
