@@ -25,7 +25,7 @@ const CartList = () => {
         })}
       </div>
       <div class="cart-total">
-        <div class="card-content">
+        <div class="card-total-info">
           <h3> Total Items</h3>
           <p>{cartTotalItems}</p>
           <h3> Total Price</h3>
