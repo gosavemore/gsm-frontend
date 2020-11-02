@@ -3,6 +3,10 @@
     display: flex;
     flex-direction: column;
     width: 500px;
+
+    &-quantity {
+      font-size: 2rem;
+    }
   }
   &-product {
     font-size: 2rem;

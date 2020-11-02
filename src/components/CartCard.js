@@ -26,7 +26,7 @@ const CartCard = (props) => {
         <h5>Short Description</h5>
         <p>{shortDescription} </p>
         <h5>Quantity</h5>
-        <p>Qty: {quantity}</p>
+        <p className="cart-cards-quantity">{quantity}</p>
       </Card>
     </div>
   );
