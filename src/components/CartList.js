@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getCart } from "../redux/actions/cartActions";
-import CartCart from "./CartCard";
+import { useSelector } from "react-redux";
+import CartCard from "./CartCard";
 import "./CartList.scss";
 
 const CartList = () => {
@@ -9,34 +8,32 @@ const CartList = () => {
 
   const [products, setProducts] = useState({
     totalItems: 0,
-    totalPrice: 0
-  })
+    totalPrice: 0,
+  });
 
   useEffect(() => {
     setProducts({
       totalItems: cartData.totalItems,
-      totalPrice: cartData.totalPrice
-      
-    })
-  }, [cartData])
-
-
+      totalPrice: cartData.totalPrice,
+    });
+  }, [cartData]);
 
   return (
     <div class="cart-list">
       <div className="cart-list-product">
         <h3>Your Shopping Cart</h3>
-        {
-          cartData.items.map((product) => {
-          return (
-            <CartCart
-              key={product.id}
-              product={product}
-              setProducts={setProducts}
-              totalItems={products.totalItems}
-              totalPrice={products.totalPrice}
-            />
-          );
+        {cartData.items.map((product) => {
+          if (product.quantity !== 0) {
+            return (
+              <CartCard
+                key={product.id}
+                product={product}
+                setProducts={setProducts}
+                totalItems={products.totalItems}
+                totalPrice={products.totalPrice}
+              />
+            );
+          }
         })}
       </div>
       <div class="cart-total">

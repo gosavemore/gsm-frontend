@@ -35,7 +35,12 @@ const cartReducer = (state = initialState, { type, payload }) => {
           totalPrice: (state.totalPrice += data.price),
         };
       } else {
-        state.items.map((item) => (item.quantity += 1));
+        state.items.filter((item) => {
+          if (item.id === payload.id) {
+            item.quantity += 1;
+          }
+        });
+
         return {
           ...state,
           totalItems: (state.totalItems += 1),

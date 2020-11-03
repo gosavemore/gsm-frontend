@@ -18,24 +18,22 @@ const CartCard = (props) => {
     image,
   } = props.product;
 
-
   const dispatch = useDispatch();
 
   const [localQuantity, setLocalQuantity] = useState(0);
 
-  let {totalItems, totalPrice, setProducts} = props;
+  let { totalItems, totalPrice, setProducts } = props;
 
   useEffect(() => {
     setLocalQuantity(quantity);
-    
   }, [localQuantity]);
 
   const handleIncrement = (e) => {
     e.preventDefault();
     setLocalQuantity(localQuantity + 1);
     setProducts({
-      totalItems: totalItems += 1, 
-      totalPrice: totalPrice + price
+      totalItems: (totalItems += 1),
+      totalPrice: totalPrice + price,
     });
     dispatch(addItemQuantity(id));
   };
@@ -43,10 +41,12 @@ const CartCard = (props) => {
   const handleDecrement = (e) => {
     e.preventDefault();
     setLocalQuantity(localQuantity - 1);
-    setProducts({
-      totalItems: totalItems -= 1, 
-      totalPrice: totalPrice - price
-    });
+    if (localQuantity !== 0) {
+      setProducts({
+        totalItems: (totalItems -= 1),
+        totalPrice: totalPrice - price,
+      });
+    }
     dispatch(decreaseItemQuantity(id));
   };
 

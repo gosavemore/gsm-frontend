@@ -4,8 +4,8 @@ import "./ProductList.scss";
 
 const ProductList = ({ filteredProduct }) => {
   return (
-    <div>
-      <h3 style={{ padding: "20px" }}>Recommended for You!</h3>
+    <div className="product-container">
+      <h3>Recommended for You!</h3>
       <div className="product-list">
         {filteredProduct.map((product) => {
           return <ProductCard key={product.id} product={product} />;

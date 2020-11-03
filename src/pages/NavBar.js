@@ -6,7 +6,8 @@ import GoSaveMoreLogoHeader from "../assets/GoSaveMoreLogoHeader.png";
 import SearchBar from "../components/SearchBar";
 import { logOut } from "../redux/actions/authActions";
 
-import { Navbar, NavItem, Icon, Card } from "react-materialize";
+import { Navbar, NavItem, Icon, Badge } from "react-materialize";
+import { NavLink } from "react-router-dom";
 
 const NavBar = ({ placeholder, handleChange }) => {
   const [user, setUser] = useState({
@@ -16,7 +17,7 @@ const NavBar = ({ placeholder, handleChange }) => {
     isSuccess: "",
   });
 
-  const cartCount = useSelector((state) => state.cart.totalItems)
+  const cartCount = useSelector((state) => state.cart.totalItems);
 
   const state = useSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -32,14 +33,14 @@ const NavBar = ({ placeholder, handleChange }) => {
 
   return (
     <Navbar
-    className="navBar"
+      className="nav-bar"
       alignLinks="right"
       id="mobile-nav"
       menuIcon={<Icon>menu</Icon>}
       brand={
-        <Link to="/">
+        <NavLink to="/">
           <img src={GoSaveMoreLogoHeader} id="logo" />
-        </Link>
+        </NavLink>
       }
       options={{
         draggable: true,
@@ -48,46 +49,36 @@ const NavBar = ({ placeholder, handleChange }) => {
       }}
     >
       <div className="nav-item">
-      <div>
-        <NavItem>
-          <SearchBar placeholder={placeholder} handleChange={handleChange} />
-        </NavItem>
+        <div>
+          <NavItem className="nav-item-search">
+            <SearchBar placeholder={placeholder} handleChange={handleChange} />
+          </NavItem>
         </div>
         {state.isAuth ? (
-          <div>
-            <NavItem>
-              <Link className="navLink cart" to="/cart">
-                Cart {cartCount}
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link className="navLink track" to="/tracking">
-                Orders
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link className="signout" onClick={handleLogOut} to="/tracking">
-                Logout
-              </Link>
-            </NavItem>
+          <div className="nav-item-auth">
+            <NavLink className="navLink cart" to="/cart">
+              Cart <Badge className="nav-item-cart-num"> {cartCount}</Badge>
+            </NavLink>
+
+            <NavLink className="navLink track" to="/tracking">
+              Orders
+            </NavLink>
+
+            <NavLink className="signout" onClick={handleLogOut} to="/tracking">
+              Logout
+            </NavLink>
           </div>
         ) : (
-          <div>
-          {cartCount}
-          <div>
-            <NavItem>
-              <Link className="navLink cart" to="/cart">
-                Cart
-              </Link>
-            </NavItem>
-            </div>
-            <div>
-            <NavItem>
-              <Link className="navLink login" to="/login">
-                Login
-              </Link>
-            </NavItem>
-          </div>
+          <div className="nav-item-auth">
+            <NavLink to="/cart">
+              <div className="nav-item-cart-count">
+                Cart <Badge className="nav-item-cart-num"> {cartCount}</Badge>
+              </div>
+            </NavLink>
+
+            <NavLink className="login" to="/login">
+              Login
+            </NavLink>
           </div>
         )}
       </div>
