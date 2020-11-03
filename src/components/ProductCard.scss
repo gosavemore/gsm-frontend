@@ -3,6 +3,11 @@
   display: flex;
   justify-content: center;
 
+  p {
+    text-align: center;
+    padding: 1rem 0;
+  }
+
   &-name {
     text-align: center;
   }

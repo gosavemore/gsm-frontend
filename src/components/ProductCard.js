@@ -8,10 +8,10 @@ const ProductCard = (props) => {
   const dispatch = useDispatch();
   let product = props.product;
 
-  const { productName, image } = props.product;
+  const { productName, price, image } = props.product;
 
   const handleClick = () => {
-    dispatch(addToCart(product, "testing"));
+    dispatch(addToCart(product));
   };
 
   return (
@@ -19,8 +19,13 @@ const ProductCard = (props) => {
       <CardTitle image={image} className="product-name">
         {productName}
       </CardTitle>
-      <Button waves="light" onClick={handleClick} className="product-button">
-        Add To Cart
+      <p>${price}</p>
+      <Button
+        waves="light"
+        onClick={handleClick}
+        className="product-button string"
+      >
+        Add
       </Button>
     </Card>
   );
