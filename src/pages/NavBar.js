@@ -57,7 +57,7 @@ const NavBar = ({ placeholder, handleChange }) => {
         {state.isAuth ? (
           <div className="nav-item-auth">
             <NavLink className="navLink cart" to="/cart">
-              Cart {cartCount}
+              Cart <Badge className="nav-item-cart-num"> {cartCount}</Badge>
             </NavLink>
 
             <NavLink className="navLink track" to="/tracking">
@@ -72,7 +72,7 @@ const NavBar = ({ placeholder, handleChange }) => {
           <div className="nav-item-auth">
             <NavLink to="/cart">
               <div className="nav-item-cart-count">
-                Cart <Badge className="nav-item-cart-num  "> {cartCount}</Badge>
+                Cart <Badge className="nav-item-cart-num"> {cartCount}</Badge>
               </div>
             </NavLink>
 
