@@ -19,7 +19,7 @@ const CartList = () => {
   }, [cartData]);
 
   return (
-    <div class="cart-list">
+    <div className="cart-list">
       <div className="cart-list-product">
         <h3>Your Shopping Cart</h3>
         {cartData.items.map((product) => {
@@ -36,8 +36,8 @@ const CartList = () => {
           }
         })}
       </div>
-      <div class="cart-total">
-        <div class="card-total-info">
+      <div className="cart-total">
+        <div className="card-total-info">
           <h3> Total Items</h3>
           <p>{products.totalItems}</p>
           <h3> Total Price</h3>
