@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import CartCart from "./CartCard";
+import CartCard from "./CartCard";
 import "./CartList.scss";
 
 const CartList = () => {
@@ -23,15 +23,17 @@ const CartList = () => {
       <div className="cart-list-product">
         <h3>Your Shopping Cart</h3>
         {cartData.items.map((product) => {
-          return (
-            <CartCart
-              key={product.id}
-              product={product}
-              setProducts={setProducts}
-              totalItems={products.totalItems}
-              totalPrice={products.totalPrice}
-            />
-          );
+          if (product.quantity !== 0) {
+            return (
+              <CartCard
+                key={product.id}
+                product={product}
+                setProducts={setProducts}
+                totalItems={products.totalItems}
+                totalPrice={products.totalPrice}
+              />
+            );
+          }
         })}
       </div>
       <div class="cart-total">

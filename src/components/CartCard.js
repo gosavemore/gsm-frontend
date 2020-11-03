@@ -41,7 +41,7 @@ const CartCard = (props) => {
   const handleDecrement = (e) => {
     e.preventDefault();
     setLocalQuantity(localQuantity - 1);
-    if (localQuantity > 0) {
+    if (localQuantity !== 0) {
       setProducts({
         totalItems: (totalItems -= 1),
         totalPrice: totalPrice - price,
