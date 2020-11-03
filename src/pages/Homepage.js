@@ -5,7 +5,7 @@ import undrawGiftBox from "../assets/undraw_Gift_box.svg";
 const Homepage = ({ filteredProduct }) => {
   return (
     <div className="homepage">
-      <div class="row">
+      <div className="row">
         <ProductList filteredProduct={filteredProduct} />
         <img src={undrawGiftBox}></img>
       </div>
