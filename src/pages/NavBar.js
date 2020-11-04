@@ -77,11 +77,11 @@ const NavBar = ({ placeholder, handleChange }) => {
             </NavLink>
 
             <NavLink className='login' to='/login'>
-              Login
+              <div className='nav-item-login'>Login</div>
             </NavLink>
 
             <NavLink className='register' to='/register'>
-              Register
+              <div className='nav-item-register'>Register</div>
             </NavLink>
           </div>
         )}
