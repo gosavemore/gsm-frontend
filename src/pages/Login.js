@@ -13,6 +13,8 @@ const Login = () => {
 
   const onSubmit = (data) => {
     dispatch(loginUser(data, history));
+    let path = `/`
+    history.push(path)
   };
   console.log(errors);
 

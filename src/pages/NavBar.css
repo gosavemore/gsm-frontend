@@ -13,20 +13,20 @@
   justify-content: center;
   align-items: center;
   margin-right: 2rem;
+}
 
-  &-auth {
-    display: flex;
-    align-items: center;
-  }
+.nav-item-auth {
+  display: flex;
+  align-items: center;
+}
 
-  &-search {
-    margin-top: 0.5rem;
-  }
+.nav-item-search {
+  margin-top: 0.5rem;
+}
 
-  &-cart-num {
-    background-color: #343a40;
-    color: #fff !important;
-  }
+.nav-item-cart-num {
+  background-color: #343a40;
+  color: #fff !important;
 }
 
 @media only screen and (max-width: 600px) {
