@@ -11,18 +11,24 @@ const Login = () => {
   const dispatch = useDispatch()
   const history = useHistory()
 
-  const onSubmit = (data) => {
-    // e.prevent.default()
+  //  submitForm (e) {
+  //   e.preventDefault()
+  //   history.push('/'); 
+  // }
+
+  const onSubmit = (data, e) => {
+    e.prevent.default()
+    console.log('EVENT::::::E::::==>>', e)
     dispatch(loginUser(data, history))
-    let path = `/`
+    // let path = `/`
     // history.push(path)
   }
   console.log(errors)
 
-  const redirectHome = () => {
-    let path = `/`
-    history.push(path)
-  }
+  // const redirectHome = () => {
+  //   let path = `/`
+  //   history.push(path)
+  // }
 
   return (
     <div style={{ maxWidth: '800px', margin: 'auto', padding: '20px' }}>
@@ -32,10 +38,12 @@ const Login = () => {
         <input type='text' id='username' name='username' ref={register} />
         <label>Password</label>
         <input type='password' id='password' name='password' ref={register} />
+        <Link to={`/`}>
         <button class='btn waves-effect waves-light' type='submit'>
           {' '}
           Submit{' '}
         </button>
+        </Link>
       </form>
       <div>
         <p>New to GoSaveMore?</p>

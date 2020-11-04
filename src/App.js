@@ -32,9 +32,7 @@ function App() {
   };
 
   // search product if exists
-
   let filteredProduct;
-  console.log("filteredProduct::::", filteredProduct);
 
   if (search.searchField) {
     filteredProduct = products.filter((product) =>

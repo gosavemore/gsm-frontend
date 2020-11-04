@@ -2,10 +2,12 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../redux/actions/authActions";
+import { useHistory } from 'react-router-dom'
 
 export default function Register() {
   const { register, handleSubmit, reset } = useForm();
   const dispatch = useDispatch();
+  const history = useHistory()
 
   const onSubmit = (data) => {
     let updatedData = {
@@ -14,7 +16,9 @@ export default function Register() {
     };
     console.log("this is the data", updatedData);
     dispatch(registerUser(updatedData));
-    setTimeout(() => reset(), 5000);
+    let path = `/`
+    history.push(path)
+    // setTimeout(() => reset(), 5000);
   };
 
   return (
