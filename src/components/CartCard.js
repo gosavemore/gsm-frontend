@@ -94,20 +94,12 @@ const CartCard = (props) => {
           quantity={localQuantity}
           text={"Save for later"}
         />
-        {savedItems.filter((item) => {
-          if (item.product_id === id) {
-            return <SaveForLater text={"disabled"} className="avoidClicks" />;
-          } else {
-            return (
-              <SaveForLater
-                key={id}
-                product_id={id}
-                quantity={localQuantity}
-                text={"Save for later"}
-              />
-            );
-          }
-        })}
+        <SaveForLater
+          key={id}
+          product_id={id}
+          quantity={localQuantity}
+          text={"Save for later"}
+        />
       </Card>
     </div>
   );
