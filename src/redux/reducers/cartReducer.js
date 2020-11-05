@@ -9,6 +9,7 @@ const {
 } = types;
 const initialState = {
   items: [],
+  savedItems: [],
   totalItems: 0,
   totalPrice: 0,
   isLoading: false,
@@ -88,6 +89,7 @@ const cartReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         isLoading: false,
+        savedItems: state.savedItems.concat(payload),
       };
     case CART_SAVE_ITEM_FAIL:
       return {
