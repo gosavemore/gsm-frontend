@@ -8,6 +8,9 @@ const {
   ADD_TO_CART,
   INCREMENT_ITEM_QUANTITY,
   DECREMENT_ITEM_QUANTITY,
+  CART_SAVE_ITEM_START,
+  CART_SAVE_ITEM_SUCCESS,
+  CART_SAVE_ITEM_FAIL,
 } = types;
 
 export const getCart = () => async (dispatch) => {
@@ -32,4 +35,15 @@ export const addItemQuantity = (id) => async (dispatch) => {
 
 export const decreaseItemQuantity = (id) => async (dispatch) => {
   dispatch({ type: DECREMENT_ITEM_QUANTITY, payload: id });
+};
+
+export const saveCart = (data) => async (dispatch) => {
+  dispatch({ type: CART_SAVE_ITEM_START });
+  try {
+    const res = await axiosRoute().post(data);
+    dispatch({ type: CART_SAVE_ITEM_SUCCESS, payload: res.data });
+    return res;
+  } catch (err) {
+    dispatch({ type: CART_SAVE_ITEM_FAIL, payload: err.message });
+  }
 };

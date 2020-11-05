@@ -8,6 +8,8 @@ import {
 } from "../redux/actions/cartActions";
 import "./CartCard.scss";
 
+import SaveForLater from "./SaveForLater";
+
 const CartCard = (props) => {
   const {
     id,
@@ -81,6 +83,7 @@ const CartCard = (props) => {
             onClick={handleIncrement}
           ></Button>
         </div>
+        <SaveForLater key={id} product_id={id} quantity={localQuantity} />
       </Card>
     </div>
   );
