@@ -19,6 +19,15 @@ const CartList = () => {
   }, [cartData]);
 
   return (
+    <div>
+      <div>
+        <div>
+          <h3> Total Items</h3>
+          <p>{products.totalItems}</p>
+          <h3> Total Price</h3>
+          <p>${products.totalPrice}</p>
+        </div>
+      </div>
     <div className="cart-list">
       <div className="cart-list-product">
         <h3>Your Shopping Cart</h3>
@@ -35,15 +44,7 @@ const CartList = () => {
             );
           }
         })}
-      </div>
-      <div className="cart-total">
-        <div className="card-total-info">
-          <h3> Total Items</h3>
-          <p>{products.totalItems}</p>
-          <h3> Total Price</h3>
-          <p>${products.totalPrice}</p>
-        </div>
-      </div>
+      </div> </div>
     </div>
   );
 };

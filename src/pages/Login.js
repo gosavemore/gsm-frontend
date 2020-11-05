@@ -10,13 +10,19 @@ const Login = () => {
   const { register, handleSubmit, errors } = useForm();
   const dispatch = useDispatch();
   const history = useHistory();
+  console.log(errors);
 
   const onSubmit = (data) => {
     dispatch(loginUser(data, history));
     let path = `/`
     history.push(path)
   };
-  console.log(errors);
+
+    const onSubmitRedirect = (data) => {
+    dispatch(loginUser(data, history));
+    let path = `/register`
+    history.push(path)
+  };
 
   return (
     <div style={{ maxWidth: "800px", margin: "auto", padding: "20px" }}>
@@ -32,8 +38,10 @@ const Login = () => {
         </button>
       </form>
       <div>
+        <Link to="/register">
         <p>New to GoSaveMore?</p>
-        <button style={{ marginBottom: '20px'}} class="btn waves-effect waves-light"  to="/register">Register</button>
+        <button style={{ marginBottom: '20px'}} class="btn waves-effect waves-light">Register</button>
+        </Link>
       </div>
       <>
         <img src={undraw_Add_user} />
