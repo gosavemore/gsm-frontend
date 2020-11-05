@@ -94,12 +94,6 @@ const CartCard = (props) => {
           quantity={localQuantity}
           text={"Save for later"}
         />
-        <SaveForLater
-          key={id}
-          product_id={id}
-          quantity={localQuantity}
-          text={"Save for later"}
-        />
       </Card>
     </div>
   );
