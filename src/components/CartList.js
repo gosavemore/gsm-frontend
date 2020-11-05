@@ -21,28 +21,29 @@ const CartList = () => {
   return (
     <div className="cart-page">
       <div className="cart-ring-up">
-          <h3> Total Items</h3>
-          <p>{products.totalItems}</p>
-          <h3> Total Price</h3>
-          <p>${products.totalPrice}</p>
+        <h3> Total Items</h3>
+        <p>{products.totalItems}</p>
+        <h3> Total Price</h3>
+        <p>${products.totalPrice}</p>
       </div>
-    <div className="cart-list">
-      <div className="cart-list-product">
-        <h3>Your Shopping Cart</h3>
-        {cartData.items.map((product) => {
-          if (product.quantity !== 0) {
-            return (
-              <CartCard
-                key={product.id}
-                product={product}
-                setProducts={setProducts}
-                totalItems={products.totalItems}
-                totalPrice={products.totalPrice}
-              />
-            );
-          }
-        })}
-      </div> </div>
+      <div className="cart-list">
+        <div className="cart-list-product">
+          <h3>Your Shopping Cart</h3>
+          {cartData.items.map((product) => {
+            if (product.quantity !== 0) {
+              return (
+                <CartCard
+                  key={product.id}
+                  product={product}
+                  setProducts={setProducts}
+                  totalItems={products.totalItems}
+                  totalPrice={products.totalPrice}
+                />
+              );
+            }
+          })}
+        </div>
+      </div>
     </div>
   );
 };

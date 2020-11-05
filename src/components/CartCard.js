@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Card, CardTitle } from "react-materialize";
 import { Button, Icon } from "react-materialize";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import {
   addItemQuantity,
   decreaseItemQuantity,
 } from "../redux/actions/cartActions";
 import "./CartCard.scss";
+
+import SaveForLater from "./SaveForLater";
 
 const CartCard = (props) => {
   const {
@@ -18,15 +20,18 @@ const CartCard = (props) => {
     image,
   } = props.product;
 
+  const cart = useSelector((state) => state.cart.savedItems);
   const dispatch = useDispatch();
 
   const [localQuantity, setLocalQuantity] = useState(0);
+  const [savedItems, setSavedItems] = useState([]);
 
   let { totalItems, totalPrice, setProducts } = props;
 
   useEffect(() => {
     setLocalQuantity(quantity);
-  }, [localQuantity]);
+    setSavedItems(cart);
+  }, [localQuantity, cart]);
 
   const handleIncrement = (e) => {
     e.preventDefault();
@@ -61,8 +66,10 @@ const CartCard = (props) => {
         className="cart-cards"
       >
         <h5>${price}.00 </h5>
-        <h5>Short Description</h5>
-        <p>{shortDescription} </p>
+        <div>
+          <h5>Short Description</h5>
+          <p>{shortDescription} </p>
+        </div>
         <h5>Quantity</h5>
         <div className="cart-buttons">
           <Button
@@ -81,6 +88,12 @@ const CartCard = (props) => {
             onClick={handleIncrement}
           ></Button>
         </div>
+        <SaveForLater
+          key={id}
+          product_id={id}
+          quantity={localQuantity}
+          text={"Save for later"}
+        />
       </Card>
     </div>
   );

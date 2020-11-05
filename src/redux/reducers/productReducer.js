@@ -17,7 +17,6 @@ const {
 
 const initialState = {
   products: [],
-  product: [],
   err: "",
   isLoading: false,
 };

@@ -1,9 +1,18 @@
 import { types } from "../actions/index";
-const { ADD_TO_CART, INCREMENT_ITEM_QUANTITY, DECREMENT_ITEM_QUANTITY } = types;
+const {
+  ADD_TO_CART,
+  INCREMENT_ITEM_QUANTITY,
+  DECREMENT_ITEM_QUANTITY,
+  CART_SAVE_ITEM_START,
+  CART_SAVE_ITEM_SUCCESS,
+  CART_SAVE_ITEM_FAIL,
+} = types;
 const initialState = {
   items: [],
+  savedItems: [],
   totalItems: 0,
   totalPrice: 0,
+  isLoading: false,
 };
 
 const cartReducer = (state = initialState, { type, payload }) => {
@@ -70,6 +79,23 @@ const cartReducer = (state = initialState, { type, payload }) => {
         }
       }
       return state;
+
+    case CART_SAVE_ITEM_START:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case CART_SAVE_ITEM_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        savedItems: state.savedItems.concat(payload),
+      };
+    case CART_SAVE_ITEM_FAIL:
+      return {
+        ...state,
+        err: payload,
+      };
 
     default:
       return state;
