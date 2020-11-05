@@ -1,3 +1,18 @@
+@media only screen and (min-width: 749px) {
+.cart-page {
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 20px;
+}
+}
+
+@media only screen and (min-width: 749px) {
+.cart-ring-up {
+margin: 20px;
+
+}
+}
+
 .cart-list {
   background-color: #f8f9fa;
   display: flex;
