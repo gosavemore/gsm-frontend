@@ -11,6 +11,7 @@ const initialState = {
   items: [],
   totalItems: 0,
   totalPrice: 0,
+  isLoading: false,
 };
 
 const cartReducer = (state = initialState, { type, payload }) => {
@@ -81,11 +82,12 @@ const cartReducer = (state = initialState, { type, payload }) => {
     case CART_SAVE_ITEM_START:
       return {
         ...state,
+        isLoading: true,
       };
     case CART_SAVE_ITEM_SUCCESS:
       return {
         ...state,
-        items: payload,
+        isLoading: false,
       };
     case CART_SAVE_ITEM_FAIL:
       return {

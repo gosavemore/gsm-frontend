@@ -39,8 +39,9 @@ export const decreaseItemQuantity = (id) => async (dispatch) => {
 
 export const saveCart = (data) => async (dispatch) => {
   dispatch({ type: CART_SAVE_ITEM_START });
+  console.log("this is the data", data);
   try {
-    const res = await axiosRoute().post(data);
+    const res = await axiosRoute().post("/cart", data);
     dispatch({ type: CART_SAVE_ITEM_SUCCESS, payload: res.data });
     return res;
   } catch (err) {
