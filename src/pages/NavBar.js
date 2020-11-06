@@ -38,9 +38,18 @@ const NavBar = ({ placeholder, handleChange }) => {
       id='mobile-nav'
       menuIcon={<Icon>menu</Icon>}
       brand={
-        <NavLink to='/'>
-          <img src={GoSaveMoreLogoHeader} id='logo' />
-        </NavLink>
+        <div class='nav-wrapper'>
+          <NavLink to='/'>
+            <img src={GoSaveMoreLogoHeader} id='logo' />
+          </NavLink>
+          {/* <NavLink to='/cart'>
+            <div className='nav-item-right' class='brand-logo right'>
+              <Badge className='nav-item-cart-num' class='brand-logo right'>
+                cart:{cartCount}
+              </Badge>
+            </div>
+          </NavLink> */}
+        </div>
       }
       options={{
         draggable: true,
@@ -48,6 +57,11 @@ const NavBar = ({ placeholder, handleChange }) => {
         preventScrolling: true,
       }}
     >
+      {/* <NavLink to='/cart'>
+              <div className='mobileNav'>
+                Cart <Badge className='nav-item-cart-num'> {cartCount}</Badge>
+              </div>
+            </NavLink> */}
       <div className='nav-item'>
         <div>
           <NavItem className='nav-item-search'>

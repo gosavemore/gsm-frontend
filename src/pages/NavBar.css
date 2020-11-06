@@ -42,3 +42,12 @@
     flex-direction: column;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .nav-item-rights {
+    display: flex;
+    flex-direction: row;
+    background-color: red;
+    display: none !important;
+  }
+}
