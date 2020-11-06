@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import CartCard from "./CartCard";
+import {getCart} from "../redux/actions/cartActions"
 import "./CartList.scss";
 
 const CartList = () => {
   const cartData = useSelector((state) => state.cart);
+  const auth = useSelector(state => state.auth)
+  const dispatch = useDispatch();
 
   const [products, setProducts] = useState({
     totalItems: 0,
@@ -17,6 +20,12 @@ const CartList = () => {
       totalPrice: cartData.totalPrice,
     });
   }, [cartData]);
+
+  useEffect(() => {
+    if(auth.isAuth) {
+      dispatch(getCart(auth.user.id));
+    }
+  }, [])
 
   return (
     <div className="cart-page">
