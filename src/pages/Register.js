@@ -25,8 +25,10 @@ export default function Register() {
     <div
       style={{
         maxWidth: '800px',
-        marginBottom: '20px',
+        margin: 'auto',
+        marginBottom: '100px',
         padding: '20px',
+        height: 'auto',
       }}
     >
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -61,6 +63,7 @@ export default function Register() {
           name='lastName'
           ref={register}
         />
+
         <button class='btn waves-effect waves-light' type='submit'>
           Submit
         </button>
