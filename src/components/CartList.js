@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import CartCard from './CartCard'
+import { getCart } from '../redux/actions/cartActions'
 import './CartList.scss'
 import { Button } from 'react-materialize'
 
@@ -18,6 +19,12 @@ const CartList = () => {
       totalPrice: cartData.totalPrice,
     })
   }, [cartData])
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getCart())
+  }, [dispatch])
 
   return (
     <div className='cart-page'>
