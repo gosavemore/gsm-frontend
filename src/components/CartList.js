@@ -23,6 +23,7 @@ const CartList = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
+    console.log('useEffect==>')
     dispatch(getCart())
   }, [dispatch])
 
