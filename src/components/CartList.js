@@ -31,16 +31,19 @@ const CartList = () => {
   useEffect(() => {
     dispatch(getCart())
     setCartData(cartData)
-    console.log('useEffect==>', cartData)
+    console.log('useEffect==>', cartDataA)
   }, [dispatch])
+
+  if (cartDataA) {
+    console.log('ifffff')
 
   return (
     <div className='cart-page'>
       <div className='cart-ring-up'>
         <h3> Total Items</h3>
-        <p>{products.totalItems}</p>
+        <p>{cartData.totalItems}</p>
         <h3> Total Price</h3>
-        <p>${products.totalPrice}</p>
+        <p>${cartData.totalPrice}</p>
         <Button>Checkout</Button>
       </div>
       <div className='cart-list'>
@@ -63,7 +66,37 @@ const CartList = () => {
       </div>
     </div>
   )
-}
+} else {
+    return (
+    <div className='cart-page'>
+      <div className='cart-ring-up'>
+        <h3> Total Items</h3>
+        <p>{products.totalItems}</p>
+        <h3> Total Price</h3>
+        <p>${products.totalPrice}</p>
+        <Button>Checkout</Button>
+      </div>
+      <div className='cart-list'>
+        <div className='cart-list-product'>
+          <h3>Your Shopping Cart</h3>
+          {cartData.items.map((product) => {
+            if (product.quantity !== 0) {
+              return (
+                <CartCard
+                  key={product.id}
+                  product={product}
+                  setProducts={setProducts}
+                  totalItems={products.totalItems}
+                  totalPrice={products.totalPrice}
+                />
+              )
+            }
+          })}
+        </div>
+      </div>
+    </div>
+    )
+}}
 
 export default CartList
 

@@ -12,6 +12,7 @@ import Footer from './pages/Footer'
 import Banner from './components/Banner'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProducts } from './redux/actions/productsActions'
+import { getCart } from './redux/actions/cartActions'
 import PrivateRoute from './redux/util/privateRoute'
 import CartList from './components/CartList'
 import Orders from './components/Orders'
@@ -23,10 +24,12 @@ function App() {
   })
 
   const products = useSelector((state) => state.products.products)
+  const cart = useSelector(state => state.cart)
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(getProducts())
+        dispatch(getCart())
   }, [dispatch])
 
   const handleChange = (e) => {
