@@ -7,7 +7,6 @@ import { Button } from 'react-materialize'
 
 const CartList = () => {
   const cartData = useSelector((state) => state.cart)
-  const loggedInUser = useSelector(state => state.user) // TBC
 
   const [products, setProducts] = useState({
     totalItems: 0,
@@ -16,7 +15,7 @@ const CartList = () => {
 
   const [cartDataA, setCartData] = useState()
 
-  console.log("products:::::++++", cartDataA)
+  // console.log("HERE  :::::  ++++", cartData.savedItems.length)
 
     const dispatch = useDispatch()
 
@@ -32,6 +31,10 @@ const CartList = () => {
   useEffect(() => {
     dispatch(getCart())
     setCartData(cartData)
+    setProducts({
+      totalItems: cartData.savedItems,
+      totalPrice: cartData.totalPrice,
+    })
     console.log('useEffect==>', cartDataA)
   }, [dispatch])
 

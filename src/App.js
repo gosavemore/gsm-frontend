@@ -23,8 +23,7 @@ function App() {
     searchField: '',
   })
 
-  const loggedInUser = useSelector(state => state.user) // TBC
-
+  const loggedInUser = useSelector(state => state.user) 
 
   const products = useSelector((state) => state.products.products)
   const cart = useSelector(state => state.cart)
