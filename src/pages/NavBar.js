@@ -19,9 +19,10 @@ const NavBar = ({ placeholder, handleChange }) => {
 
   const unSavedData = useSelector((state) => state.cart.totalItems)
   const cartData = useSelector((state) => state.cart)
-  // const cartCount2 = cartData + unSavedData
- const userCount = cartData.savedItems.length
- console.log('userCount', userCount)
+  const userCount = cartData.savedItems.length
+  const cartCount2 = cartData + userCount
+  console.log('userCount2', cartCount2)
+  console.log('unSavedData', unSavedData)
   const state = useSelector((state) => state.auth)
   const dispatch = useDispatch()
   const history = useHistory()
