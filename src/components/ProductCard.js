@@ -1,37 +1,38 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../redux/actions/cartActions";
-import { Card, CardTitle, Button } from "react-materialize";
-import "./ProductCard.scss";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { addToCart, addItemQuantity } from '../redux/actions/cartActions'
+import { Card, CardTitle, Button } from 'react-materialize'
+import './ProductCard.scss'
 
 const ProductCard = (props) => {
-  const dispatch = useDispatch();
-  let product = props.product;
+  const dispatch = useDispatch()
+  let product = props.product
 
-  const { productName, price, image } = props.product;
+  const { productName, price, image } = props.product
 
   const handleClick = () => {
-    dispatch(addToCart(product));
-  };
+    dispatch(addToCart(product))
+    dispatch(addItemQuantity())
+  }
 
   return (
-    <Card className="product">
-      <CardTitle image={image} className="product-name">
+    <Card className='product'>
+      <CardTitle image={image} className='product-name'>
         <Link to={`/product/${product.id}`}>
           <h3>{product.productName}</h3>
         </Link>
       </CardTitle>
       <p>${price}</p>
       <Button
-        waves="light"
+        waves='light'
         onClick={handleClick}
-        className="product-button string"
+        className='product-button string'
       >
         Add
       </Button>
     </Card>
-  );
-};
+  )
+}
 
-export default ProductCard;
+export default ProductCard
