@@ -13,18 +13,25 @@ const CartList = () => {
     totalPrice: 0,
   })
 
-  useEffect(() => {
-    setProducts({
-      totalItems: cartData.totalItems,
-      totalPrice: cartData.totalPrice,
-    })
-  }, [cartData])
+  const [cartDataA, setCartData] = useState()
 
-  const dispatch = useDispatch()
+  console.log("products:::::++++", cartDataA)
+
+    const dispatch = useDispatch()
+
+  // useEffect(() => {
+  //   setProducts({
+  //     totalItems: cartData.totalItems,
+  //     totalPrice: cartData.totalPrice,
+  //   })
+  // }, [dispatch])
+
+
 
   useEffect(() => {
-    console.log('useEffect==>')
     dispatch(getCart())
+    setCartData(cartData)
+    console.log('useEffect==>', cartData)
   }, [dispatch])
 
   return (
@@ -39,7 +46,7 @@ const CartList = () => {
       <div className='cart-list'>
         <div className='cart-list-product'>
           <h3>Your Shopping Cart</h3>
-          {cartData.items.map((product) => {
+          {cartData.savedItems.map((product) => {
             if (product.quantity !== 0) {
               return (
                 <CartCard

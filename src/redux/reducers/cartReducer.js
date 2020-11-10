@@ -6,6 +6,9 @@ const {
   CART_SAVE_ITEM_START,
   CART_SAVE_ITEM_SUCCESS,
   CART_SAVE_ITEM_FAIL,
+  GET_CART_START,
+  GET_CART_SUCCESS,
+  GET_CART_FAIL,
 } = types;
 const initialState = {
   items: [],
@@ -96,6 +99,23 @@ const cartReducer = (state = initialState, { type, payload }) => {
         ...state,
         err: payload,
       };
+    case GET_CART_START:
+      return {
+        ...state, 
+        isLoading: true,
+      }
+    case GET_CART_SUCCESS:
+      return {
+        ...state, 
+        isLoading: false,
+        savedItems: payload,
+      }
+    case GET_CART_FAIL:
+      return {
+        ...state,
+        isLoading: false,
+        err: payload
+      }
 
     default:
       return state;
