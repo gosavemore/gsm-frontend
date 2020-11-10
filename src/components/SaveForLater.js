@@ -5,14 +5,13 @@ import { saveCart } from "../redux/actions/cartActions";
 import { useHistory } from "react-router-dom";
 
 const SaveForLater = ({ product_id, quantity, text }) => {
-  const user = useSelector((state) => state.auth.user);
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const history = useHistory();
 
   const handleSave = () => {
     let data = {
-      user_id: user.id,
+      user_id: auth.user.id,
       product_id: product_id,
       savedForLater: true,
       quantity: quantity,
