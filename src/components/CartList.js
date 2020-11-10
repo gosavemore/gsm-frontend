@@ -12,14 +12,14 @@ const CartList = () => {
   const [products, setProducts] = useState({
     totalItems: 0,
     totalPrice: 0,
-  });
+  })
 
   useEffect(() => {
     setProducts({
       totalItems: cartData.totalItems,
       totalPrice: cartData.totalPrice,
-    });
-  }, [cartData]);
+    })
+  }, [cartData])
 
   useEffect(() => {
     if(auth.isAuth) {
@@ -28,15 +28,16 @@ const CartList = () => {
   }, [])
 
   return (
-    <div className="cart-page">
-      <div className="cart-ring-up">
+    <div className='cart-page'>
+      <div className='cart-ring-up'>
         <h3> Total Items</h3>
         <p>{products.totalItems}</p>
         <h3> Total Price</h3>
         <p>${products.totalPrice}</p>
+        <Button>Checkout</Button>
       </div>
-      <div className="cart-list">
-        <div className="cart-list-product">
+      <div className='cart-list'>
+        <div className='cart-list-product'>
           <h3>Your Shopping Cart</h3>
           {cartData.items.map((product) => {
             if (product.quantity !== 0) {
@@ -48,16 +49,16 @@ const CartList = () => {
                   totalItems={products.totalItems}
                   totalPrice={products.totalPrice}
                 />
-              );
+              )
             }
           })}
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CartList;
+export default CartList
 
 // FOR FUN
 // MAKE CART VERY SECURE USING SHA256
