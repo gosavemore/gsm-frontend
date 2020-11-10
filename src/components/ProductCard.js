@@ -23,16 +23,6 @@ const ProductCard = (props) => {
         </Link>
       </CardTitle>
       <p>${price}</p>
-      <div>
-        <Link to="/product" productName={productName}>
-          <button
-            style={{ marginBottom: "20px" }}
-            className="btn waves-effect waves-light"
-          >
-            Info
-          </button>
-        </Link>
-      </div>
       <Button
         waves="light"
         onClick={handleClick}

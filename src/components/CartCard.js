@@ -13,7 +13,7 @@ import SaveForLater from "./SaveForLater";
 const CartCard = (props) => {
   const { id, productName, price, quantity, image } = props.product;
 
-  const cart = useSelector((state) => state.cart.savedItems);
+  const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   const [localQuantity, setLocalQuantity] = useState(0);

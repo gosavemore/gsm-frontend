@@ -44,7 +44,7 @@ const Login = () => {
           <p>New to GoSaveMore?</p>
           <button
             style={{ marginBottom: "20px" }}
-            class="btn waves-effect waves-light"
+            className="btn waves-effect waves-light"
           >
             Register
           </button>
