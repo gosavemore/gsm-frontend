@@ -17,7 +17,12 @@ const NavBar = ({ placeholder, handleChange }) => {
     isSuccess: '',
   })
 
+  const cartData = useSelector((state) => state.cart)
   const cartCount = useSelector((state) => state.cart.totalItems)
+  const userCount = cartData.items.length
+  const cartCount2 = cartCount + userCount
+  console.log('cartData', cartData)
+  console.log('cartCount2', cartCount2)
 
   const state = useSelector((state) => state.auth)
   const dispatch = useDispatch()
@@ -57,7 +62,7 @@ const NavBar = ({ placeholder, handleChange }) => {
         {state.isAuth ? (
           <div className='nav-item-auth'>
             <NavLink className='navLink cart' to='/cart'>
-              Cart <Badge className='nav-item-cart-num'> {cartCount}</Badge>
+              Cart <Badge className='nav-item-cart-num'> {cartCount2}</Badge>
             </NavLink>
 
             <NavLink className='navLink track' to='/tracking'>
@@ -72,7 +77,7 @@ const NavBar = ({ placeholder, handleChange }) => {
           <div className='nav-item-auth'>
             <NavLink to='/cart'>
               <div className='nav-item-cart-count'>
-                Cart <Badge className='nav-item-cart-num'> {cartCount}</Badge>
+                Cart <Badge className='nav-item-cart-num'> {cartCount2}</Badge>
               </div>
             </NavLink>
 
