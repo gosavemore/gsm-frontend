@@ -13,10 +13,10 @@ const {
   CART_SAVE_ITEM_FAIL,
 } = types
 
-export const getCart = () => async (dispatch) => {
+export const getCart = (id) => async (dispatch) => {
   dispatch({ type: GET_CART_START })
   try {
-    const id = 1 // fix
+    console.log('getCart ID:', id)
     const res = await axiosRoute().get(`/cart/${id}`)
     dispatch({ type: GET_CART_SUCCESS, payload: res.data })
     console.log('cart:actions::::', res.data)

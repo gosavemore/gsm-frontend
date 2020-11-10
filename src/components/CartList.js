@@ -7,6 +7,7 @@ import { Button } from 'react-materialize'
 
 const CartList = () => {
   const cartData = useSelector((state) => state.cart)
+  const userID = useSelector((state) => state.auth.user.id)
 
   const [products, setProducts] = useState({
     totalItems: 0,
@@ -17,7 +18,7 @@ const CartList = () => {
 
   // console.log("HERE  :::::  ++++", cartData.savedItems.length)
 
-    const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
   // useEffect(() => {
   //   setProducts({
@@ -26,10 +27,8 @@ const CartList = () => {
   //   })
   // }, [dispatch])
 
-
-
   useEffect(() => {
-    dispatch(getCart())
+    dispatch(getCart(userID))
     setCartData(cartData)
     setProducts({
       totalItems: cartData.savedItems,
@@ -41,66 +40,67 @@ const CartList = () => {
   if (cartDataA) {
     console.log('ifffff')
 
-  return (
-    <div className='cart-page'>
-      <div className='cart-ring-up'>
-        <h3> Total Items</h3>
-        <p>{cartData.totalItems}</p>
-        <h3> Total Price</h3>
-        <p>${cartData.totalPrice}</p>
-        <Button>Checkout</Button>
-      </div>
-      <div className='cart-list'>
-        <div className='cart-list-product'>
-          <h3>Your Shopping Cart</h3>
-          {cartData.savedItems.map((product) => {
-            if (product.quantity !== 0) {
-              return (
-                <CartCard
-                  key={product.id}
-                  product={product}
-                  setProducts={setProducts}
-                  totalItems={products.totalItems}
-                  totalPrice={products.totalPrice}
-                />
-              )
-            }
-          })}
-        </div>
-      </div>
-    </div>
-  )
-} else {
     return (
-    <div className='cart-page'>
-      <div className='cart-ring-up'>
-        <h3> Total Items</h3>
-        <p>{products.totalItems}</p>
-        <h3> Total Price</h3>
-        <p>${products.totalPrice}</p>
-        <Button>Checkout</Button>
-      </div>
-      <div className='cart-list'>
-        <div className='cart-list-product'>
-          <h3>Your Shopping Cart</h3>
-          {cartData.items.map((product) => {
-            if (product.quantity !== 0) {
-              return (
-                <CartCard
-                  key={product.id}
-                  product={product}
-                  setProducts={setProducts}
-                  totalItems={products.totalItems}
-                  totalPrice={products.totalPrice}
-                />
-              )
-            }
-          })}
+      <div className='cart-page'>
+        <div className='cart-ring-up'>
+          <h3> Total Items</h3>
+          <p>{cartData.totalItems}</p>
+          <h3> Total Price</h3>
+          <p>${cartData.totalPrice}</p>
+          <Button>Checkout</Button>
+        </div>
+        <div className='cart-list'>
+          <div className='cart-list-product'>
+            <h3>Your Shopping Cart</h3>
+            {cartData.savedItems.map((product) => {
+              if (product.quantity !== 0) {
+                return (
+                  <CartCard
+                    key={product.id}
+                    product={product}
+                    setProducts={setProducts}
+                    totalItems={products.totalItems}
+                    totalPrice={products.totalPrice}
+                  />
+                )
+              }
+            })}
+          </div>
         </div>
       </div>
-    </div>
     )
-}}
+  } else {
+    return (
+      <div className='cart-page'>
+        <div className='cart-ring-up'>
+          <h3> Total Items</h3>
+          <p>{products.totalItems}</p>
+          <h3> Total Price</h3>
+          <p>${products.totalPrice}</p>
+          <Button>Checkout</Button>
+        </div>
+        <div className='cart-list'>
+          <div className='cart-list-product'>
+            <h3>Your Shopping Cart</h3>
+            {cartData.items.map((product) => {
+              if (product.quantity !== 0) {
+                return (
+                  <CartCard
+                    key={product.id}
+                    product={product}
+                    setProducts={setProducts}
+                    totalItems={products.totalItems}
+                    totalPrice={products.totalPrice}
+                  />
+                )
+              }
+            })}
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
 
 export default CartList
 
