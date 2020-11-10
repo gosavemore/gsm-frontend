@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import GoSaveMoreLogoHeader from '../assets/GoSaveMoreLogoHeader.png'
 import SearchBar from '../components/SearchBar'
 import { logOut } from '../redux/actions/authActions'
+import { getCart } from '../redux/actions/cartActions'
 
 import { Navbar, NavItem, Icon, Badge } from 'react-materialize'
 import { NavLink } from 'react-router-dom'
@@ -17,12 +18,13 @@ const NavBar = ({ placeholder, handleChange }) => {
     isSuccess: '',
   })
 
+  const userID = useSelector((state) => state.auth.user.id)
   const unSavedData = useSelector((state) => state.cart.totalItems)
   const cartData = useSelector((state) => state.cart)
   const userCount = cartData.savedItems.length
   const cartCount2 = cartData + userCount
   console.log('userCount2', cartCount2)
-  console.log('unSavedData', unSavedData)
+  console.log('userID', userID)
   const state = useSelector((state) => state.auth)
   const dispatch = useDispatch()
   const history = useHistory()
@@ -32,6 +34,7 @@ const NavBar = ({ placeholder, handleChange }) => {
   }
 
   useEffect(() => {
+    dispatch(getCart(userID))
     setUser(state)
   }, [state, user])
 
