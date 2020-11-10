@@ -14,10 +14,14 @@ const ProductInfo = (props) => {
 
   return (
     <>
-      <div className="productInfo">{item.productName}</div>
-      <div className="productInfo">{item.price}</div>
-      <div className="productInfo">{item.brand}</div>
-      <div className="productInfo">{item.ratings}</div>
+      <div className="ProductInfo">
+        <h3>{item.productName}</h3>
+        <h4>${item.price}</h4>
+        <p>{item.shortDescription}</p>
+        <p>Description: {item.description}</p>
+        <p>Stock: {item.stock}</p>
+        <p>Ratings: {item.ratings}</p>
+      </div>
     </>
   );
 };
