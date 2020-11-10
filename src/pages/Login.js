@@ -1,28 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { loginUser } from "../redux/actions/authActions";
+import { getCart } from "../redux/actions/cartActions";
 import undraw_Add_user from "../assets/undraw_Add_user.svg";
 
 const Login = () => {
   const { register, handleSubmit, errors } = useForm();
   const dispatch = useDispatch();
+  const successfulLogin = useSelector((state) => state.isSuccess);
   const history = useHistory();
   console.log(errors);
 
   const onSubmit = (data) => {
     dispatch(loginUser(data, history));
-    let path = `/`
-    history.push(path)
+    let path = `/`;
+    history.push(path);
   };
 
-    const onSubmitRedirect = (data) => {
-    dispatch(loginUser(data, history));
-    let path = `/register`
-    history.push(path)
-  };
+  useEffect(() => {
+    if (successfulLogin) {
+      dispatch(getCart());
+    }
+  });
 
   return (
     <div style={{ maxWidth: "800px", margin: "auto", padding: "20px" }}>
@@ -39,8 +41,13 @@ const Login = () => {
       </form>
       <div>
         <Link to="/register">
-        <p>New to GoSaveMore?</p>
-        <button style={{ marginBottom: '20px'}} class="btn waves-effect waves-light">Register</button>
+          <p>New to GoSaveMore?</p>
+          <button
+            style={{ marginBottom: "20px" }}
+            className="btn waves-effect waves-light"
+          >
+            Register
+          </button>
         </Link>
       </div>
       <>

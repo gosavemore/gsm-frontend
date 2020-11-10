@@ -17,6 +17,7 @@ const {
 
 const initialState = {
   products: [],
+  item: [],
   err: "",
   isLoading: false,
 };
@@ -32,7 +33,7 @@ const productReducer = (state = initialState, { type, payload }) => {
     case GET_INDIVIDUAL_PRODUCT_SUCCESS:
       return {
         ...state,
-        product: payload,
+        item: payload,
       };
     case GET_INDIVIDUAL_PRODUCT_FAIL:
       return {

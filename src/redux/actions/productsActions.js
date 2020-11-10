@@ -17,14 +17,12 @@ const {
   EDIT_PRODUCTS_FAIL,
 } = types;
 
-export const getProduct = (productName) => async (dispatch) => {
+export const getProduct = (id) => async (dispatch) => {
   dispatch({ type: GET_INDIVIDUAL_PRODUCT_START });
   try {
-    const res = axiosRoute();
-    console
-      .log("single item get:", res.data)
-      .get(`/product/${productName}`)
-      .dispatch({ type: GET_INDIVIDUAL_PRODUCT_SUCCESS, payload: res.data });
+    const res = await axiosRoute().get(`/products/${id}`);
+    dispatch({ type: GET_INDIVIDUAL_PRODUCT_SUCCESS, payload: res.data });
+    return res;
   } catch (err) {
     dispatch({ type: GET_INDIVIDUAL_PRODUCT_FAIL, payload: err });
   }

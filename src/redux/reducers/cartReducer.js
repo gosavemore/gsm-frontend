@@ -8,15 +8,14 @@ const {
   CART_SAVE_ITEM_FAIL,
   GET_CART_START,
   GET_CART_SUCCESS,
-  GET_CART_FAIL
+  GET_CART_FAIL,
 } = types;
 const initialState = {
   items: [],
-  savedItems: [],
   totalItems: 0,
   totalPrice: 0,
   isLoading: false,
-  err: ""
+  err: "",
 };
 
 const cartReducer = (state = initialState, { type, payload }) => {
@@ -104,21 +103,21 @@ const cartReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         isLoading: true,
-      }
+      };
 
     case GET_CART_SUCCESS:
       return {
         ...state,
         isLoading: false,
-        savedItems: payload
-      }
-    
+        items: [...state.items, ...payload],
+      };
+
     case GET_CART_FAIL:
       return {
         ...state,
-        err: payload
-      }
-      
+        err: payload,
+      };
+
     default:
       return state;
   }
