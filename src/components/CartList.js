@@ -7,6 +7,7 @@ import { Button } from 'react-materialize'
 
 const CartList = () => {
   const cartData = useSelector((state) => state.cart)
+  const loggedInUser = useSelector(state => state.user) // TBC
 
   const [products, setProducts] = useState({
     totalItems: 0,
