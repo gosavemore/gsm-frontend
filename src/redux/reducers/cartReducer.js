@@ -119,11 +119,15 @@ const cartReducer = (state = initialState, { type, payload }) => {
     case GET_CART_SUCCESS:
       let tallyTotalItems = 0;
       payload.map((item) => (tallyTotalItems += item.quantity));
+
+      let tallyTotalPrice = 0;
+      payload.map((item) => (tallyTotalPrice += item.price));
       return {
         ...state,
         isLoading: false,
         items: [...state.items, ...payload],
         totalItems: tallyTotalItems,
+        totalPrice: tallyTotalPrice,
       };
 
     case GET_CART_FAIL:
