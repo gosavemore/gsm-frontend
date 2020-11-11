@@ -21,9 +21,10 @@ const Login = () => {
   }
 
   useEffect(() => {
-    console.log('getin cart!!!!')
-    dispatch(getCart())
-  }, [successfulLogin])
+    if (successfulLogin) {
+      dispatch(getCart());
+    }
+  }, []);
 
   return (
     <div style={{ maxWidth: '800px', margin: 'auto', padding: '20px' }}>

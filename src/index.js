@@ -13,9 +13,10 @@ import thunk from "redux-thunk";
 
 const logger = createLogger();
 const middlewares = [logger, thunk];
+const composeEnhancers = composeWithDevTools({trace: true, traceLimit: 25})
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(...middlewares))
+  composeEnhancers(applyMiddleware(...middlewares))
 );
 
 ReactDOM.render(
