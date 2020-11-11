@@ -40,5 +40,5 @@ export const registerUser = (data) => (dispatch) => {
 export const logOut = (history) => (dispatch) => {
   localStorage.removeItem("token");
   dispatch({ type: LOGOUT_USER });
-  history.push("/login");
+  history.push("/");
 };
