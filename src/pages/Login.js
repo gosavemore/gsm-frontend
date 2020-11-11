@@ -24,7 +24,7 @@ const Login = () => {
     if (successfulLogin) {
       dispatch(getCart());
     }
-  });
+  }, []);
 
   return (
     <div style={{ maxWidth: "800px", margin: "auto", padding: "20px" }}>
