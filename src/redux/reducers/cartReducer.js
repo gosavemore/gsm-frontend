@@ -88,7 +88,6 @@ const cartReducer = (state = initialState, { type, payload }) => {
       return state;
 
     case RESET_ITEM_QUANTITY:
-      console.log("total:", state.totalItems);
       return {
         ...state,
         isLoading: false,
@@ -118,10 +117,13 @@ const cartReducer = (state = initialState, { type, payload }) => {
       };
 
     case GET_CART_SUCCESS:
+      let tallyTotalItems = 0;
+      payload.map((item) => (tallyTotalItems += item.quantity));
       return {
         ...state,
         isLoading: false,
         items: [...state.items, ...payload],
+        totalItems: tallyTotalItems,
       };
 
     case GET_CART_FAIL:

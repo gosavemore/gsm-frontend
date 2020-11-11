@@ -11,12 +11,14 @@ const CartList = () => {
   const dispatch = useDispatch();
 
   const [products, setProducts] = useState({
+    items: [],
     totalItems: 0,
     totalPrice: 0,
   });
 
   useEffect(() => {
     setProducts({
+      items: [...cartData.items],
       totalItems: cartData.totalItems,
       totalPrice: cartData.totalPrice,
     });
@@ -40,7 +42,7 @@ const CartList = () => {
       <div className="cart-list">
         <div className="cart-list-product">
           <h3>Your Shopping Cart</h3>
-          {cartData.items.map((product) => {
+          {products.items.map((product) => {
             if (product.quantity !== 0) {
               return (
                 <CartCard
