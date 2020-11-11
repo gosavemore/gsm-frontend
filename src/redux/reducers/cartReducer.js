@@ -121,7 +121,7 @@ const cartReducer = (state = initialState, { type, payload }) => {
     case DECREMENT_ITEM_QUANTITY:
       for (let item of state.items) {
         if (item.id === payload) {
-          if (item.quantity === 1) {
+          if (item.quantity === 0) {
             return {
               items: state.items.filter((x) => x.id !== payload),
               totalItems: 0,
