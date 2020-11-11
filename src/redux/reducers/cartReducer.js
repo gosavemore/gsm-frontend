@@ -92,8 +92,6 @@ const cartReducer = (state = initialState, { type, payload }) => {
 
       // update the payload, if the payload is not in the cart items then push it to the items
       // if not then just increase the quantity in the store.
-
-
       return {
         ...state,
         isLoading: false,

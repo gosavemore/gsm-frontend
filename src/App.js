@@ -28,7 +28,9 @@ function App() {
 
   useEffect(() => {
     dispatch(getProducts());
-    dispatch(getCart(auth.user.id));
+    if(auth.isAuth) {
+      dispatch(getCart(auth.user.id));
+    }
   }, [dispatch, auth]);
 
 
