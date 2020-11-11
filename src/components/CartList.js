@@ -18,7 +18,7 @@ const CartList = () => {
 
   useEffect(() => {
     setProducts({
-      items: [...cartData.items],
+      items: cartData.items,
       totalItems: cartData.totalItems,
       totalPrice: cartData.totalPrice,
     });
@@ -42,19 +42,20 @@ const CartList = () => {
       <div className="cart-list">
         <div className="cart-list-product">
           <h3>Your Shopping Cart</h3>
-          {products.items.map((product) => {
-            if (product.quantity !== 0) {
-              return (
-                <CartCard
-                  key={product.id}
-                  product={product}
-                  setProducts={setProducts}
-                  totalItems={products.totalItems}
-                  totalPrice={products.totalPrice}
-                />
-              );
-            }
-          })}
+          { cartData.items.map((product) => {
+              if (product.quantity !== 0) {
+                return (
+                  <CartCard
+                    key={product.id}
+                    product={product}
+                    setProducts={setProducts}
+                    totalItems={products.totalItems}
+                    totalPrice={products.totalPrice}
+                  />
+                );
+              }
+            }) 
+          }
         </div>
       </div>
     </div>
