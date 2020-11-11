@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./NavBar.scss";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import GoSaveMoreLogoHeader from "../assets/GoSaveMoreLogoHeader.png";
 import SearchBar from "../components/SearchBar";
 import { logOut } from "../redux/actions/authActions";
-import { getCart, resetQuantity } from "../redux/actions/cartActions";
+import { resetQuantity } from "../redux/actions/cartActions";
 
 import { Navbar, NavItem, Icon, Badge } from "react-materialize";
 import { NavLink } from "react-router-dom";
@@ -18,35 +18,28 @@ const NavBar = ({ placeholder, handleChange }) => {
     isSuccess: "",
   });
 
-  var cartData = useSelector((state) => state.cart);
-  var cartCount = useSelector((state) => state.cart.totalItems);
-  var userCount = cartData.items.length;
-  // var cartCount2 = cartCount + userCount
+  const [totalItems, setTotalItems] = useState(0);
 
   const state = useSelector((state) => state.auth);
-  const auth = useSelector((state) => state.auth);
+  const stateTotalItems = useSelector((state) => state.cart.totalItems);
+
   const dispatch = useDispatch();
   const history = useHistory();
 
   const handleLogOut = () => {
     dispatch(resetQuantity());
-    userCount = 0;
     dispatch(logOut(history));
-    // delete all local state for cart
-    //   cartCount2 = cartCount + userCount
   };
-
-  console.log("cartData", cartData);
-  // console.log('cartCount2', cartCount2)
 
   useEffect(() => {
     setUser(state);
-    // dispatch(getCart(auth.user.id));
   }, [state, user]);
 
-  // useEffect(() => {
-  //   dispatch(resetQuantity())
-  // }, [handleLogOut])
+  useEffect(() => {
+    setTotalItems(stateTotalItems);
+  }, [stateTotalItems]);
+
+  console.log("this is the total items", totalItems);
 
   return (
     <Navbar
@@ -74,7 +67,7 @@ const NavBar = ({ placeholder, handleChange }) => {
         {state.isAuth ? (
           <div className="nav-item-auth">
             <NavLink className="navLink cart" to="/cart">
-              Cart <Badge className="nav-item-cart-num"> {userCount}</Badge>
+              Cart <Badge className="nav-item-cart-num"> {totalItems}</Badge>
             </NavLink>
 
             <NavLink className="navLink track" to="/tracking">
@@ -88,7 +81,8 @@ const NavBar = ({ placeholder, handleChange }) => {
         ) : (
           <div className="nav-item-auth">
             <NavLink to="/cart">
-              Cart <Badge className="nav-item-cart-num"> {userCount}</Badge>
+              Cart
+              <Badge className="nav-item-cart-num"> {totalItems}</Badge>
             </NavLink>
 
             <NavLink className="login" to="/login">
