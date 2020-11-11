@@ -1,34 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CartCard from "./CartCard";
-import { getCart } from "../redux/actions/cartActions";
 import { Button } from "react-materialize";
 import "./CartList.scss";
 
 const CartList = () => {
   const cartData = useSelector((state) => state.cart);
-  const auth = useSelector((state) => state.auth);
+  
   const dispatch = useDispatch();
 
   const [products, setProducts] = useState({
-    items: [],
     totalItems: 0,
     totalPrice: 0,
   });
 
   useEffect(() => {
     setProducts({
-      items: cartData.items,
       totalItems: cartData.totalItems,
       totalPrice: cartData.totalPrice,
     });
   }, [cartData]);
 
-  useEffect(() => {
-    if (auth.isAuth) {
-      dispatch(getCart(auth.user.id));
-    }
-  }, []);
+  
 
   return (
     <div className="cart-page">

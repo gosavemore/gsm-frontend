@@ -15,6 +15,7 @@ import { getProducts } from "./redux/actions/productsActions";
 import PrivateRoute from "./redux/util/privateRoute";
 import CartList from "./components/CartList";
 import Orders from "./components/Orders";
+import { getCart } from "./redux/actions/cartActions";
 
 function App() {
   const [search, setSearch] = useState({
@@ -22,11 +23,14 @@ function App() {
   });
 
   const products = useSelector((state) => state.products.products);
+  const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getProducts());
-  }, [dispatch]);
+    dispatch(getCart(auth.user.id));
+  }, [dispatch, auth]);
+
 
   const handleChange = (e) => {
     setSearch({ searchField: e.target.value });
