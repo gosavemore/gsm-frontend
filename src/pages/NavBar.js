@@ -88,17 +88,15 @@ const NavBar = ({ placeholder, handleChange }) => {
         ) : (
           <div className="nav-item-auth">
             <NavLink to="/cart">
-              <div className="nav-item-cart-count">
-                Cart <Badge className="nav-item-cart-num"> {userCount}</Badge>
-              </div>
+              Cart <Badge className="nav-item-cart-num"> {userCount}</Badge>
             </NavLink>
 
             <NavLink className="login" to="/login">
-              <div className="nav-item-login">Login</div>
+              Login
             </NavLink>
 
             <NavLink className="register" to="/register">
-              <div className="nav-item-register">Register</div>
+              Register
             </NavLink>
           </div>
         )}
