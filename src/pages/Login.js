@@ -1,50 +1,49 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { loginUser } from "../redux/actions/authActions";
-import { getCart } from "../redux/actions/cartActions";
-import undraw_Add_user from "../assets/undraw_Add_user.svg";
+import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
+import { useHistory } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { loginUser } from '../redux/actions/authActions'
+import { getCart } from '../redux/actions/cartActions'
+import undraw_Add_user from '../assets/undraw_Add_user.svg'
 
 const Login = () => {
-  const { register, handleSubmit, errors } = useForm();
-  const dispatch = useDispatch();
-  const successfulLogin = useSelector((state) => state.isSuccess);
-  const history = useHistory();
-  console.log(errors);
+  const { register, handleSubmit, errors } = useForm()
+  const dispatch = useDispatch()
+  const successfulLogin = useSelector((state) => state.isSuccess)
+  const history = useHistory()
+  console.log(errors)
 
   const onSubmit = (data) => {
-    dispatch(loginUser(data, history));
-    let path = `/`;
-    history.push(path);
-  };
+    dispatch(loginUser(data, history))
+    let path = `/`
+    history.push(path)
+  }
 
   useEffect(() => {
-    if (successfulLogin) {
-      dispatch(getCart());
-    }
-  });
+    console.log('getin cart!!!!')
+    dispatch(getCart())
+  }, [successfulLogin])
 
   return (
-    <div style={{ maxWidth: "800px", margin: "auto", padding: "20px" }}>
+    <div style={{ maxWidth: '800px', margin: 'auto', padding: '20px' }}>
       <h4>Login</h4>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>Username</label>
-        <input type="text" id="username" name="username" ref={register} />
+        <input type='text' id='username' name='username' ref={register} />
         <label>Password</label>
-        <input type="password" id="password" name="password" ref={register} />
-        <button class="btn waves-effect waves-light" type="submit">
-          {" "}
-          Submit{" "}
+        <input type='password' id='password' name='password' ref={register} />
+        <button class='btn waves-effect waves-light' type='submit'>
+          {' '}
+          Submit{' '}
         </button>
       </form>
       <div>
-        <Link to="/register">
+        <Link to='/register'>
           <p>New to GoSaveMore?</p>
           <button
-            style={{ marginBottom: "20px" }}
-            className="btn waves-effect waves-light"
+            style={{ marginBottom: '20px' }}
+            className='btn waves-effect waves-light'
           >
             Register
           </button>
@@ -54,7 +53,7 @@ const Login = () => {
         <img src={undraw_Add_user} />
       </>
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login
