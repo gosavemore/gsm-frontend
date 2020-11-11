@@ -39,8 +39,6 @@ const NavBar = ({ placeholder, handleChange }) => {
     setTotalItems(stateTotalItems);
   }, [stateTotalItems]);
 
-  console.log("this is the total items", totalItems);
-
   return (
     <Navbar
       className="nav-bar"

@@ -60,12 +60,15 @@ const cartReducer = (state = initialState, { type, payload }) => {
           totalPrice: (state.totalPrice += data.price),
         };
       }
+
     case INCREMENT_ITEM_QUANTITY:
       for (let item of state.items) {
         if (item.id === payload) {
           item.quantity += 1;
-          state.totalItems += 1;
-          state.totalPrice += item.price;
+          return {
+            totalItems: (state.totalItems += 1),
+            totalPrice: (state.totalPrice += item.price),
+          };
         }
       }
       return state;
@@ -122,6 +125,7 @@ const cartReducer = (state = initialState, { type, payload }) => {
 
       let tallyTotalPrice = 0;
       payload.map((item) => (tallyTotalPrice += item.price));
+
       return {
         ...state,
         isLoading: false,
