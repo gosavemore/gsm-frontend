@@ -20,13 +20,21 @@ const AddProduct = () => {
   }
 
   return (
-    <div style={{ maxWidth: '800px', margin: 'auto', padding: '20px' }}>
+    <div
+      style={{
+        maxWidth: '800px',
+        margin: 'auto',
+        padding: '20px',
+        marginBottom: '100px',
+        height: 'auto',
+      }}
+    >
       <h4>Add a new Product</h4>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>Product Name:</label>
         <input type='text' id='productName' name='productName' ref={register} />
         <label>Image: </label>
-        <input type='text' id='image' name='image' ref={register} />
+        <input type='file' id='image' name='image' ref={register} />
         <label>Brand: </label>
         <input type='text' id='brand' name='brand' ref={register} />
         <label>Price:</label>

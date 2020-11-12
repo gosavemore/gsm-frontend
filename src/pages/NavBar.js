@@ -98,11 +98,9 @@ const NavBar = ({ placeholder, handleChange }) => {
               Register
             </NavLink>
 
-            <div>
-              <NavLink className='navLink addProduct' to='/admin/addProducts'>
-                Add New
-              </NavLink>
-            </div>
+            <NavLink className='addProduct' to='/admin/addProducts'>
+              Add New
+            </NavLink>
           </div>
         )}
       </div>
