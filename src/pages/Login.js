@@ -21,18 +21,15 @@ const Login = () => {
     history.push(path)
   }
 
-<<<<<<< HEAD
   // useEffect(() => {
   //   console.log('getin cart!!!!')
   //   dispatch(getCart())
   // }, [successfulLogin])
-=======
-  useEffect(() => {
-    if (successfulLogin) {
-      dispatch(getCart());
-    }
-  }, []);
->>>>>>> a2f935cc7c048ac514a80347be7fe0f36e9584be
+  // useEffect(() => {
+  //   if (successfulLogin) {
+  //     dispatch(getCart());
+  //   }
+  // }, []);
 
   return (
     <div style={{ maxWidth: '800px', margin: 'auto', padding: '20px' }}>
