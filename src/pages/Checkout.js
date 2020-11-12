@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux'
 const Checkout = () => {
   const totalPrice = useSelector((state) => state.cart.totalPrice)
 
-  console.log('totalPrice', totalPrice)
   return (
     <div>
       <h5>Checkout</h5>

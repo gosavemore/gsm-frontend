@@ -12,7 +12,7 @@ const Login = () => {
   const dispatch = useDispatch()
   const successfulLogin = useSelector((state) => state.isSuccess)
   const history = useHistory()
-  console.log(errors)
+  console.log('Login error (useForm):', errors)
 
   const onSubmit = (data) => {
     dispatch(loginUser(data, history))
@@ -20,16 +20,6 @@ const Login = () => {
     let path = `/`
     history.push(path)
   }
-
-  // useEffect(() => {
-  //   console.log('getin cart!!!!')
-  //   dispatch(getCart())
-  // }, [successfulLogin])
-  // useEffect(() => {
-  //   if (successfulLogin) {
-  //     dispatch(getCart());
-  //   }
-  // }, []);
 
   return (
     <div style={{ maxWidth: '800px', margin: 'auto', padding: '20px' }}>
