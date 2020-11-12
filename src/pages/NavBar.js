@@ -21,7 +21,7 @@ const NavBar = ({ placeholder, handleChange }) => {
   const [totalItems, setTotalItems] = useState(0)
 
   const state = useSelector((state) => state.auth)
-  var localItemCount = useSelector((state) => state.cart.totalItems)
+  const localItemCount = useSelector((state) => state.cart.totalItems)
   var stateCart = useSelector((state) => state.cart.items)
   var stateCartLength = stateCart.length
   var cartTotal = stateCartLength + localItemCount
@@ -39,8 +39,8 @@ const NavBar = ({ placeholder, handleChange }) => {
   }, [state, user])
 
   useEffect(() => {
-    setTotalItems(cartTotal)
-  }, [cartTotal])
+    setTotalItems(localItemCount)
+  }, [localItemCount])
 
   return (
     <Navbar
