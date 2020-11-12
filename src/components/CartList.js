@@ -15,6 +15,8 @@ const CartList = () => {
     totalPrice: 0,
   })
 
+  var price = products.totalPrice
+
   useEffect(() => {
     setProducts({
       totalItems: cartData.totalItems,
@@ -29,7 +31,7 @@ const CartList = () => {
         <p>{products.totalItems}</p>
         <h3> Total Price</h3>
         <p>${products.totalPrice}</p>
-        <Link to={'/checkout'}>
+        <Link to={'/checkout'} totalPrice={price}>
           <Button>Checkout</Button>
         </Link>
       </div>
