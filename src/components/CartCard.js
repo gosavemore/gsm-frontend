@@ -86,7 +86,7 @@ const CartCard = (props) => {
         key={id}
         product_id={id}
         quantity={localQuantity}
-        text={'Save for later'}
+        text={'Save'}
         onClick={saveForLater}
       />
     </Card>

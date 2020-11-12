@@ -1,8 +1,4 @@
 .cart {
-  width: 300px;
-  display: flex;
-  justify-content: center;
-
   h5 {
     text-align: center;
     padding: 1rem 0;
@@ -27,9 +23,21 @@
     font-size: 1.5rem;
   }
 
+  // .card-content {
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  // }
+
+  .btn {
+    display: flex;
+    justify-content: center;
+  }
+
   &-buttons {
     display: flex;
     justify-content: center;
+    text-align: center;
 
     button {
       background-color: #536b8e !important;
