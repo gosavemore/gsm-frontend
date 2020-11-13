@@ -1,32 +1,31 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getProduct } from "../redux/actions/productsActions";
-import { MediaBox, Button } from "react-materialize";
-import "./ProductInfo.scss";
-import { addToCart } from "../redux/actions/cartActions";
+import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { getProduct } from '../redux/actions/productsActions'
+import { MediaBox, Button } from 'react-materialize'
+import './ProductInfo.scss'
+import { addToCart } from '../redux/actions/cartActions'
 
 const ProductInfo = (props) => {
-  let id = props.match.params.id;
+  let id = props.match.params.id
 
-  const dispatch = useDispatch();
-  const item = useSelector((state) => state.products.item);
+  const dispatch = useDispatch()
+  const item = useSelector((state) => state.products.item)
 
   const handleClick = () => {
-    dispatch(addToCart(item));
-    console.log("this is the product", props);
-  };
+    dispatch(addToCart(item))
+  }
 
   useEffect(() => {
-    dispatch(getProduct(id));
-  }, []);
+    dispatch(getProduct(id))
+  }, [])
 
   return (
     <>
-      <div className="product-info-container">
+      <div className='product-info-container'>
         <MediaBox>
           <img alt={item.productName} src={item.image} />
         </MediaBox>
-        <div className="product-info-details">
+        <div className='product-info-details'>
           <h3>{item.productName}</h3>
           <h4>${item.price}</h4>
           <h4>Description: </h4>
@@ -36,8 +35,8 @@ const ProductInfo = (props) => {
           <h4>Ratings: </h4>
           <p>{item.ratings}</p>
           <Button
-            waves="light"
-            className="product-info-button"
+            waves='light'
+            className='product-info-button'
             onClick={handleClick}
           >
             Add
@@ -45,7 +44,7 @@ const ProductInfo = (props) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default ProductInfo;
+export default ProductInfo

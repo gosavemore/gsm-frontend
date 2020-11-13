@@ -14,11 +14,9 @@ export default function Register() {
       ...data,
       isAdmin: 0,
     }
-    console.log('this is the data', updatedData)
     dispatch(registerUser(updatedData))
     let path = `/`
     history.push(path)
-    // setTimeout(() => reset(), 5000);
   }
 
   return (

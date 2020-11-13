@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { Card, CardTitle } from 'react-materialize'
 import { Button, Icon } from 'react-materialize'
 import { useSelector, useDispatch } from 'react-redux'
@@ -55,43 +56,40 @@ const CartCard = (props) => {
   }
 
   return (
-    <div className='cart'>
-      <Card
-        header={
-          <CardTitle image={image} className='product-name'>
-            {productName}
-          </CardTitle>
-        }
-        className='cart-cards'
-      >
-        <h5>${price}.00 </h5>
-        <h5>Quantity</h5>
-        <div className='cart-buttons'>
-          <Button
-            flat
-            node='button'
-            waves='light'
-            icon={<Icon>remove</Icon>}
-            onClick={handleDecrement}
-          ></Button>
-          <p className='cart-cards-quantity'>{localQuantity}</p>
-          <Button
-            flat
-            node='button'
-            waves='light'
-            icon={<Icon>add</Icon>}
-            onClick={handleIncrement}
-          ></Button>
-        </div>
-        <SaveForLater
-          key={id}
-          product_id={id}
-          quantity={localQuantity}
-          text={'Save for later'}
-          onClick={saveForLater}
-        />
-      </Card>
-    </div>
+    <Card className='cart'>
+      <CardTitle image={image} className='product-name'>
+        <Link to={`/product/${id}`}>
+          <h3>{productName}</h3>
+        </Link>
+      </CardTitle>
+
+      <h5>${price}.00 </h5>
+      <h5>Quantity</h5>
+      <div className='cart-buttons'>
+        <Button
+          flat
+          node='button'
+          waves='light'
+          icon={<Icon>remove</Icon>}
+          onClick={handleDecrement}
+        ></Button>
+        <p className='cart-cards-quantity'>{localQuantity}</p>
+        <Button
+          flat
+          node='button'
+          waves='light'
+          icon={<Icon>add</Icon>}
+          onClick={handleIncrement}
+        ></Button>
+      </div>
+      <SaveForLater
+        key={id}
+        product_id={id}
+        quantity={localQuantity}
+        text={'Save'}
+        onClick={saveForLater}
+      />
+    </Card>
   )
 }
 
