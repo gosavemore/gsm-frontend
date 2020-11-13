@@ -71,6 +71,10 @@ const NavBar = ({ placeholder, handleChange }) => {
               Cart <Badge className='nav-item-cart-num'> {totalItems}</Badge>
             </NavLink>
 
+            <NavLink className='navLink addProduct' to='/admin/addProducts'>
+              Add New
+            </NavLink>
+
             <NavLink className='navLink track' to='/tracking'>
               Orders
             </NavLink>
@@ -92,6 +96,10 @@ const NavBar = ({ placeholder, handleChange }) => {
 
             <NavLink className='register' to='/register'>
               Register
+            </NavLink>
+
+            <NavLink className='addProduct' to='/admin/addProducts'>
+              Add New
             </NavLink>
           </div>
         )}
