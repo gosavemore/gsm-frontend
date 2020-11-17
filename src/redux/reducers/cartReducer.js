@@ -1,3 +1,4 @@
+import SaveForLater from "../../components/SaveForLater";
 import { types } from "../actions/index";
 const {
   ADD_TO_CART,
@@ -15,6 +16,7 @@ const initialState = {
   items: [],
   isLoading: false,
   err: "",
+  totalItems: 0,
 };
 
 const cartReducer = (state = initialState, { type, payload }) => {
@@ -30,6 +32,7 @@ const cartReducer = (state = initialState, { type, payload }) => {
         return {
           ...state,
           items: state.items.concat(data),
+          totalItems: 1,
         };
       }
       // if not equal then add item to cart
@@ -39,6 +42,7 @@ const cartReducer = (state = initialState, { type, payload }) => {
         return {
           ...state,
           items: state.items.concat(data),
+          totalItems: (state.totalItems += 1),
         };
       } else {
         state.items.filter((item) => {
@@ -49,6 +53,7 @@ const cartReducer = (state = initialState, { type, payload }) => {
 
         return {
           ...state,
+          totalItems: (state.totalItems += 1),
         };
       }
 
@@ -77,11 +82,14 @@ const cartReducer = (state = initialState, { type, payload }) => {
     case GET_CART_SUCCESS:
       // update the payload, if the payload is not in the cart items then push it to the items
       // if not then just increase the quantity in the store.
+      let tallyTotalItems = 0;
+      payload.map((item) => (tallyTotalItems += item.quantity));
 
       return {
         ...state,
         isLoading: false,
         items: [...state.items, ...payload],
+        totalItems: tallyTotalItems,
       };
 
     case GET_CART_FAIL:
@@ -94,6 +102,7 @@ const cartReducer = (state = initialState, { type, payload }) => {
       for (let item of state.items) {
         if (item.id === payload) {
           item.quantity += 1;
+          state.totalItems += 1;
         }
       }
       return state;
@@ -103,14 +112,20 @@ const cartReducer = (state = initialState, { type, payload }) => {
         if (item.id === payload) {
           if (item.quantity === 0) {
             return {
-              items: state.items.filter((x) => x.id !== payload),
-              // totalItems: 0,
+              items: [],
+              totalItems: 0,
             };
           } else {
-            item.quantity -= 1;
           }
         }
+        item.quantity -= 1;
+        state.totalItems -= 1;
+        return {
+          ...state,
+          items: state.items.filter((x) => x.id !== payload),
+        };
       }
+
       return state;
 
     case RESET_ITEM_QUANTITY:
@@ -118,6 +133,7 @@ const cartReducer = (state = initialState, { type, payload }) => {
         items: [],
         isLoading: false,
         err: "",
+        totalItems: 0,
       };
 
     default:
