@@ -20,7 +20,7 @@ const CartList = () => {
     )
   }
 
-  var p = items.price
+  let price = items.price
 
   useEffect(() => {
     setTotal(
@@ -38,7 +38,7 @@ const CartList = () => {
         <Link
           to={{
             pathname: '/checkout',
-            state: { p },
+            state: { price },
           }}
         >
           <Button>Checkout</Button>
