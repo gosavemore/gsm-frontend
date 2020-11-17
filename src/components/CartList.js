@@ -1,44 +1,51 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import CartCard from "./CartCard";
-import { Button } from "react-materialize";
-import "./CartList.scss";
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import CartCard from './CartCard'
+import { Button } from 'react-materialize'
+import './CartList.scss'
 
 const CartList = () => {
-  const { isLoading, items } = useSelector((state) => state.cart);
+  const { isLoading, items } = useSelector((state) => state.cart)
 
-  const [total, setTotal] = useState(0);
+  const [total, setTotal] = useState(0)
 
   if (!isLoading) {
     const addDecimals = (num) => {
-      return (Math.round(num * 100) / 100).toFixed(2);
-    };
+      return (Math.round(num * 100) / 100).toFixed(2)
+    }
 
     items.price = addDecimals(
       items.reduce((acc, item) => acc + item.price * item.quantity, 0)
-    );
+    )
   }
+
+  var p = items.price
 
   useEffect(() => {
     setTotal(
       (items.quantity = items.reduce((acc, item) => acc + item.quantity, 0))
-    );
-  }, []);
+    )
+  }, [])
 
   return (
-    <div className="cart-page">
-      <div className="cart-ring-up">
+    <div className='cart-page'>
+      <div className='cart-ring-up'>
         <h3> Total Items</h3>
         <p>{total}</p>
         <h3> Total Price</h3>
         <p>${items.price}</p>
-        <Link to={"/checkout"}>
+        <Link
+          to={{
+            pathname: '/checkout',
+            state: { p },
+          }}
+        >
           <Button>Checkout</Button>
         </Link>
       </div>
-      <div className="cart-list">
-        <div className="cart-list-product">
+      <div className='cart-list'>
+        <div className='cart-list-product'>
           <h3>Your Shopping Cart</h3>
           {items.map((product) => {
             if (product.quantity !== 0) {
@@ -49,16 +56,16 @@ const CartList = () => {
                   total={total}
                   setTotal={setTotal}
                 />
-              );
+              )
             }
           })}
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CartList;
+export default CartList
 
 // FOR FUN
 // MAKE CART VERY SECURE USING SHA256
