@@ -75,32 +75,14 @@ const cartReducer = (state = initialState, { type, payload }) => {
       };
 
     case GET_CART_SUCCESS:
-      let tallyTotalItems = 0;
-      payload.map((item) => (tallyTotalItems += item.quantity));
-
-      let tallyTotalPrice = 0;
-      payload.map((item) => (tallyTotalPrice += item.price));
-
       // update the payload, if the payload is not in the cart items then push it to the items
       // if not then just increase the quantity in the store.
-      let itemExist;
-      if (state.items.length !== 0) {
-        itemExist = payload.filter(
-          (item, index) => item.product_id === state.items[index].id
-        );
-      }
 
-      if (itemExist) {
-        return {
-          ...state,
-        };
-      } else {
-        return {
-          ...state,
-          isLoading: false,
-          items: [...state.items, ...payload],
-        };
-      }
+      return {
+        ...state,
+        isLoading: false,
+        items: [...state.items, ...payload],
+      };
 
     case GET_CART_FAIL:
       return {
@@ -112,8 +94,6 @@ const cartReducer = (state = initialState, { type, payload }) => {
       for (let item of state.items) {
         if (item.id === payload) {
           item.quantity += 1;
-          // state.totalItems += 1;
-          // state.totalPrice += item.price;
         }
       }
       return state;
@@ -128,8 +108,6 @@ const cartReducer = (state = initialState, { type, payload }) => {
             };
           } else {
             item.quantity -= 1;
-            // state.totalItems -= 1;
-            // state.totalPrice -= item.price;
           }
         }
       }
@@ -138,8 +116,6 @@ const cartReducer = (state = initialState, { type, payload }) => {
     case RESET_ITEM_QUANTITY:
       return {
         items: [],
-        totalItems: 0,
-        totalPrice: 0,
         isLoading: false,
         err: "",
       };
