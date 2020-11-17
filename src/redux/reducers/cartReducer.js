@@ -13,8 +13,6 @@ const {
 } = types;
 const initialState = {
   items: [],
-  // totalItems: 0,
-  // totalPrice: 0,
   isLoading: false,
   err: "",
 };
@@ -32,8 +30,6 @@ const cartReducer = (state = initialState, { type, payload }) => {
         return {
           ...state,
           items: state.items.concat(data),
-          // totalItems: 1,
-          // totalPrice: payload.price,
         };
       }
       // if not equal then add item to cart
@@ -43,8 +39,6 @@ const cartReducer = (state = initialState, { type, payload }) => {
         return {
           ...state,
           items: state.items.concat(data),
-          // totalItems: (state.totalItems += 1),
-          // totalPrice: (state.totalPrice += data.price),
         };
       } else {
         state.items.filter((item) => {
@@ -55,8 +49,6 @@ const cartReducer = (state = initialState, { type, payload }) => {
 
         return {
           ...state,
-          // totalItems: (state.totalItems += 1),
-          // totalPrice: (state.totalPrice += data.price),
         };
       }
 
@@ -101,15 +93,12 @@ const cartReducer = (state = initialState, { type, payload }) => {
       if (itemExist) {
         return {
           ...state,
-          // totalPrice: (state.totalPrice += itemExist.price),
         };
       } else {
         return {
           ...state,
           isLoading: false,
           items: [...state.items, ...payload],
-          // totalItems: tallyTotalItems,
-          // totalPrice: tallyTotalPrice,
         };
       }
 

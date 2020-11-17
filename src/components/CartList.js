@@ -8,32 +8,31 @@ import "./CartList.scss";
 const CartList = () => {
   const { isLoading, items } = useSelector((state) => state.cart);
 
-  const [products, setProducts] = useState({
-    totalItems: 0,
-    totalPrice: 0,
-  });
+  const [total, setTotal] = useState(0);
 
-  const addDecimals = (num) => {
-    return (Math.round(num * 100) / 100).toFixed(2);
-  };
+  if (!isLoading) {
+    const addDecimals = (num) => {
+      return (Math.round(num * 100) / 100).toFixed(2);
+    };
+
+    items.price = addDecimals(
+      items.reduce((acc, item) => acc + item.price * item.quantity, 0)
+    );
+  }
 
   useEffect(() => {
-    if (!isLoading) {
-      setProducts({
-        totalPrice: addDecimals(
-          items.reduce((acc, item) => acc + item.price * item.quantity, 0)
-        ),
-      });
-    }
+    setTotal(
+      (items.quantity = items.reduce((acc, item) => acc + item.quantity, 0))
+    );
   }, []);
 
   return (
     <div className="cart-page">
       <div className="cart-ring-up">
         <h3> Total Items</h3>
-        <p>{products.totalItems}</p>
+        <p>{total}</p>
         <h3> Total Price</h3>
-        <p>${products.totalPrice}</p>
+        <p>${items.price}</p>
         <Link to={"/checkout"}>
           <Button>Checkout</Button>
         </Link>
@@ -47,9 +46,8 @@ const CartList = () => {
                 <CartCard
                   key={product.id}
                   product={product}
-                  setProducts={setProducts}
-                  totalItems={products.totalItems}
-                  totalPrice={products.totalPrice}
+                  total={total}
+                  setTotal={setTotal}
                 />
               );
             }
