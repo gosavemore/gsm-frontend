@@ -125,7 +125,7 @@ const CheckoutForm = ({ totalPrice, onSuccessfulCheckout }) => {
         </div>
       </div>
       {checkoutError && <CheckoutError>{checkoutError}</CheckoutError>}
-      <div>
+      <div style={{ paddingTop: '20px' }}>
         {/* TIP always disable your submit button while processing payments */}
         <Button disabled={isProcessing || !stripe}>
           {isProcessing ? 'Processing...' : `Pay $${totalPrice}`}
