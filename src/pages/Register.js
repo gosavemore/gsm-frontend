@@ -33,15 +33,23 @@ export default function Register() {
         <h4>Create account</h4>
         <label>User Name</label>
         <input
+          required
           type='text'
           placeholder='Username'
           name='username'
           ref={register}
         />
         <label>Email</label>
-        <input type='email' placeholder='Email' name='email' ref={register} />
+        <input
+          required
+          type='email'
+          placeholder='Email'
+          name='email'
+          ref={register}
+        />
         <label>Password</label>
         <input
+          required
           type='password'
           placeholder='password'
           name='password'
@@ -49,6 +57,7 @@ export default function Register() {
         />
         <label>First Name</label>
         <input
+          required
           type='text'
           placeholder='First Name'
           name='firstName'
@@ -56,6 +65,7 @@ export default function Register() {
         />
         <label>Last Name</label>
         <input
+          required
           type='text'
           placeholder='Last Name'
           name='lastName'
