@@ -15,6 +15,9 @@ const {
   EDIT_PRODUCTS_START,
   EDIT_PRODUCTS_SUCCESS,
   EDIT_PRODUCTS_FAIL,
+  REQUEST_PRODUCT_START,
+  REQUEST_PRODUCT_SUCCESS,
+  REQUEST_PRODUCT_FAIL,
 } = types
 
 export const getProduct = (id) => async (dispatch) => {
@@ -58,5 +61,16 @@ export const editProducts = (productName, updatedData) => async (dispatch) => {
     return res
   } catch (err) {
     dispatch({ type: EDIT_PRODUCTS_FAIL, payload: err.message })
+  }
+}
+
+export const requestProduct = (productRequest) => async (dispatch) => {
+  dispatch({ type: REQUEST_PRODUCT_START })
+  try {
+    const res = await axiosRoute().post('/productRequest', productRequest)
+    dispatch({ type: REQUEST_PRODUCT_SUCCESS, payload: res.data })
+    return res
+  } catch (err) {
+    dispatch({ type: REQUEST_PRODUCT_FAIL, payload: err.message })
   }
 }

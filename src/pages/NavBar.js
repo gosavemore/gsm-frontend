@@ -72,6 +72,10 @@ const NavBar = ({ placeholder, handleChange }) => {
               Add New
             </NavLink>
 
+            <NavLink className='navLink requestProduct' to='/requestProduct'>
+              Request Product
+            </NavLink>
+
             <NavLink className='navLink track' to='/tracking'>
               Orders
             </NavLink>
@@ -97,6 +101,10 @@ const NavBar = ({ placeholder, handleChange }) => {
 
             <NavLink className='addProduct' to='/admin/addProducts'>
               Add New
+            </NavLink>
+
+            <NavLink className='navLink requestProduct' to='/requestProduct'>
+              Request Product
             </NavLink>
           </div>
         )}

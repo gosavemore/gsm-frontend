@@ -5,6 +5,7 @@ import './App.scss'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import AddProduct from './components/AddProduct'
+import RequestProduct from './pages/RequestProduct'
 import Homepage from './pages/Homepage'
 import NavBar from './pages/NavBar'
 import ProductInfo from './pages/ProductInfo'
@@ -65,6 +66,7 @@ function App() {
             <Route exact path='/login' component={Login} />
             <Route exact path='/cart' component={CartList} />
             <Route exact path='/admin/addProducts' component={AddProduct} />
+            <Route exact path='/requestProduct' component={RequestProduct} />
             <Route exact path='/product/:id' component={ProductInfo} />
             <Route exact path='/checkout' component={Checkout} />
             <PrivateRoute exact path='/orders' component={Orders} />
