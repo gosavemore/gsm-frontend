@@ -6,6 +6,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import AddProduct from './components/AddProduct'
 import RequestProduct from './pages/RequestProduct'
+import RequestSubmitted from './pages/RequestSubmitted'
 import Homepage from './pages/Homepage'
 import NavBar from './pages/NavBar'
 import ProductInfo from './pages/ProductInfo'
@@ -69,6 +70,11 @@ function App() {
             <Route exact path='/requestProduct' component={RequestProduct} />
             <Route exact path='/product/:id' component={ProductInfo} />
             <Route exact path='/checkout' component={Checkout} />
+            <Route
+              exact
+              path='/requestSubmitted'
+              component={RequestSubmitted}
+            />
             <PrivateRoute exact path='/orders' component={Orders} />
           </Switch>
         </div>

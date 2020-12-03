@@ -10,10 +10,9 @@ const RequestProduct = () => {
   const history = useHistory()
 
   const onSubmit = (data) => {
-    console.log('onSubmit Data: ', data)
     dispatch(requestProduct(data))
     setTimeout(() => reset(), 5000)
-    let path = `/`
+    let path = `/requestSubmitted`
     history.push(path)
   }
 
@@ -27,7 +26,7 @@ const RequestProduct = () => {
         height: 'auto',
       }}
     >
-      <h4>Request a new Product</h4>
+      <h4>Request a Product</h4>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>Product Name:</label>
         <input type='text' id='productName' name='productName' ref={register} />
