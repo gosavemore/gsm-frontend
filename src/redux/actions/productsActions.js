@@ -1,6 +1,7 @@
 // import axiosWithAuth from "../util/axiosWithAuth";
 import { types } from './index'
 import axiosRoute from '../util/axiosRoute'
+import axios from 'axios' // **** CHANGE ROUTE FOR DEPLOYMENT!!! ****
 
 const {
   GET_INDIVIDUAL_PRODUCT_START,
@@ -67,10 +68,15 @@ export const editProducts = (productName, updatedData) => async (dispatch) => {
 export const requestProduct = (productRequest) => async (dispatch) => {
   dispatch({ type: REQUEST_PRODUCT_START })
   try {
-    const res = await axiosRoute().post('/productRequest', productRequest)
+    const res = await axios.post(
+      'http://localhost:5000/requests/', // **** CHANGE ROUTE FOR DEPLOYMENT!!! ****
+      productRequest
+    )
+    console.log('res: ROUTE:', res)
     dispatch({ type: REQUEST_PRODUCT_SUCCESS, payload: res.data })
     return res
   } catch (err) {
     dispatch({ type: REQUEST_PRODUCT_FAIL, payload: err.message })
+    console.log('ERROR::::', err)
   }
 }
